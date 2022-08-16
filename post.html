@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISDIGITAL</title>
+
+    <!-- Framework & css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="app.css">
+
+    <!-- Jquery JS-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- loader -->
+	<div class="bg-loader">
+		<div class="kotak">
+			<img src="aset/F-S.png" alt="">
+			<p for="">sabar</p>
+		</div>
+	</div>
+
+    <!-- navbar -->
+    <nav class="navbar fixed-top shadow">
+        <div class="container">
+            <a href="index.html" class="col-lg text-dark">
+                <h4><i class="bi bi-arrow-left-circle"></i> Home / Post</h4>
+            </a>
+        </div>
+    </nav>
+    
+    <!-- bottom Navbar -->
+    <nav class="navbar fixed-bottom">
+        <div class="container">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <a href="index.html" class="col-3 col-md text-center nav-menu">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-house "></i>
+                        </button>
+                        <small class="nav-label">Home</small>
+                    </a>
+                    <a href="promo.html" class="col-3 col-md text-center nav-menu">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-bag-heart"></i>
+                        </button>
+                        <small class="nav-label">Promo</small>
+                    </a>
+                    <a href="post.html" class="col-3 col-md text-center nav-menu active">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-send-plus"></i>
+                        </button>
+                        <small class="nav-label">Post</small>
+                    </a>
+                    <a href="profile.html" class="col-3 col-md text-center nav-menu">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-person"></i>
+                        </button>
+                        <small class="nav-label">Dashboard</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- menu panel -->
+    <section id="panel">
+        <div class="container">
+            <!-- menubar -->
+            <div class="row menubar text-center mt-5 pt-4">
+                <div class="col-md col-4 pumkml">
+                    <a href="post/pumkml.html" class="icon">
+                        <button class="btn tmenu" style="border-color: #28B463;"><i class="bi bi-send-plus"></i></button>
+                        <p>UMKM Lokal</p>
+                    </a>
+                </div>
+                <div class="col-md col-4 tl">
+                    <a href="post/tl.html" class="icon">
+                        <button class="btn tmenu"style="border-color: #3382E2;"><i class="bi bi-send-plus"></i></button>
+                        <p>Toserba Lokal</p>
+                    </a>
+                </div>
+                <div class="col-md col-4 kl">
+                    <a href="post/kl.html" class="icon">
+                        <button class="btn tmenu" style="border-color: #2761D0"><i class="bi bi-send-plus"></i></button>
+                        <p>Komputer & Laptop</p>
+                    </a>
+                </div>
+                <div class="col-md col-4 mb">
+                    <a href="post/mb.html" class="icon">
+                        <button class="btn tmenu" style="border-color: #16A085;"><i class="bi bi-send-plus"></i></button>
+                        <p>Material & Bangunan</p>
+                    </a>
+                </div>
+                <div class="col-md col-4 tw">
+                    <a href="post/tw.html" class="icon">
+                        <button class="btn tmenu" style="border-color: #AD1457;"><i class="bi bi-send-plus"></i></button>
+                        <p>Travel & Wisata</p>
+                    </a>
+                </div>
+                <div class="col-md col-4 kp">
+                    <a class="icon">
+                        <button class="btn tmenu" style="border-color: #6A1B9A;"><i class="bi bi-send-plus"></i></button>
+                        <p>Kirim PickSend</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- post -->
+    <section id="post">
+        <div class="container">
+            <div class="row post mt-3">
+                <form action="" class="produkLokalPost py-3">
+                    <h4><i class="bi bi-plus-square"></i> Quick Sale</h4>
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="inputGroupFile02">
+                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                      </div>
+                    <div class="mb-3">
+                        <label for="kategori" class="form-label">Kategori</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contoh: Rumah & Dapur">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Nama & Keterangan</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lokasi" class="form-label">lokasi</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Contoh: Kutoarjo, Purworejo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Nomor WhatsApp" class="form-label">Nomor WhatsApp</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contoh: 08123456789">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-send-plus"></i> Kirim</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Seting preferesnsi kamu!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tbody>
+                      <tr id="pumkm">
+                        <td>UMKM Lokal</td>
+                        <td id="pumkmli">✔</td>
+                        <td>Tidak dapat diubah</td>
+                      </tr>
+                      <tr id="tl">
+                        <td>Toserba Lokal</td>
+                        <td id="tli">✔</td>
+                        <td>Tidak dapat diubah</td>
+                      </tr>
+                      <tr id="kl">
+                        <td>Komputer & Laptop</td>
+                        <td id="kli">✔</td>
+                        <td><button class="btn btn-primary">Ubah</button></td>
+                      </tr>
+                      <tr id="mb">
+                        <td>Material & Bangunan</td>
+                        <td id="mbi">✔</td>
+                        <td><button class="btn btn-primary">Ubah</button></td>
+                      </tr>
+                      <tr id="tw">
+                        <td>Travel & Wisata</td>
+                        <td id="twi">✔</td>
+                        <td><button class="btn btn-primary">Ubah</button></td>
+                      </tr>
+                      <tr id="kp">
+                        <td>Kirim PickSend</td>
+                        <td id="kpi">✔</td>
+                        <td><button class="btn btn-primary">Ubah</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="modal-footer">
+                <button id="simpan" type="button" class="btn btn-success" data-bs-dismiss="modal">Simpan dan tutup</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        // JS kl
+        const simpan = document.querySelector('#kl');
+        let kl = localStorage.getItem('kl');
+
+        if(!kl){
+            localStorage.setItem('kl', 'unSelected');
+        }
+
+        const unSelectedMode = () => {
+            $(".kl").hide();
+            localStorage.setItem('kl', 'unSelected');
+            document.getElementById("kli").innerHTML = "❌";
+            
+        }
+        const selectedMode = () => {
+            $(".kl").show();
+            localStorage.setItem('kl', 'selected');
+            document.getElementById("kli").innerHTML = "✔";
+        }
+
+        if(kl === 'unSelected'){
+            unSelectedMode();
+        }
+
+        simpan.addEventListener('click', function() {
+            kl = localStorage.getItem('kl');
+            if(kl === 'selected') {
+                unSelectedMode();
+            } else {
+                selectedMode();
+            }
+
+            event.preventDefault();
+        });
+
+        // Material & bangunan
+        const simpan1= document.querySelector('#mb');
+        let mb = localStorage.getItem('mb');
+
+        if(!mb){
+            localStorage.setItem('mb', 'unSelected');
+        }
+
+        const unSelectedMode1 = () => {
+            $(".mb").hide();
+            localStorage.setItem('mb', 'unSelected');
+            document.getElementById("mbi").innerHTML = "❌";
+            
+        }
+        const selectedMode1 = () => {
+            $(".mb").show();
+            localStorage.setItem('mb', 'selected');
+            document.getElementById("mbi").innerHTML = "✔";
+        }
+
+        if(mb === 'unSelected'){
+            unSelectedMode1();
+        }
+
+        simpan1.addEventListener('click', function() {
+            mb = localStorage.getItem('mb');
+            if(mb === 'selected') {
+                unSelectedMode1();
+            } else {
+                selectedMode1();
+            }
+
+            event.preventDefault();
+        });
+        
+        // Travel & wisata
+        const simpan2= document.querySelector('#tw');
+        let tw = localStorage.getItem('tw');
+
+        if(!tw){
+            localStorage.setItem('tw', 'unSelected');
+        }
+
+        const unSelectedMode2 = () => {
+            $(".tw").hide();
+            localStorage.setItem('tw', 'unSelected');
+            document.getElementById("twi").innerHTML = "❌";
+            
+        }
+        const selectedMode2 = () => {
+            $(".tw").show();
+            localStorage.setItem('tw', 'selected');
+            document.getElementById("twi").innerHTML = "✔";
+        }
+
+        if(tw === 'unSelected'){
+            unSelectedMode2();
+        }
+
+        simpan2.addEventListener('click', function() {
+            tw = localStorage.getItem('tw');
+            if(tw === 'selected') {
+                unSelectedMode2();
+            } else {
+                selectedMode2();
+            }
+
+            event.preventDefault();
+        });
+
+        // Kirim Picksend
+        const simpan3= document.querySelector('#kp');
+        let kp = localStorage.getItem('kp');
+
+        if(!kp){
+            localStorage.setItem('kp', 'unSelected');
+        }
+
+        const unSelectedMode3 = () => {
+            $(".kp").hide();
+            localStorage.setItem('kp', 'unSelected');
+            document.getElementById("kpi").innerHTML = "❌";
+            
+        }
+        const selectedMode3 = () => {
+            $(".kp").show();
+            localStorage.setItem('kp', 'selected');
+            document.getElementById("kpi").innerHTML = "✔";
+        }
+
+        if(kp === 'unSelected'){
+            unSelectedMode3();
+        }
+
+        simpan3.addEventListener('click', function() {
+            kp = localStorage.getItem('kp');
+            if(kp === 'selected') {
+                unSelectedMode3();
+            } else {
+                selectedMode3();
+            }
+
+            event.preventDefault();
+        });
+    </script>
+
+    <!-- darkmode -->
+    <script>
+        const save = document.querySelector('#save');
+        let tema = localStorage.getItem('tema');
+
+        if(!tema){
+            localStorage.setItem('tema', 'light');
+        }
+
+        const darkMode = () => {
+            document.body.classList.add('dark-mode');
+            document.getElementById("save").innerHTML = "Switch Light";
+            localStorage.setItem('tema', 'dark');
+        }
+        const lightMode = () => {
+            document.body.classList.remove('dark-mode');
+            document.getElementById("save").innerHTML = "Switch Dark";
+            localStorage.setItem('tema', 'light');
+        }
+
+        if(tema === 'dark'){
+            darkMode();
+        }
+
+        save.addEventListener('click', function() {
+            tema = localStorage.getItem('tema');
+            if(tema === 'light') {
+                darkMode();
+            } else {
+                lightMode();
+            }
+
+            e.preventDefault();
+        });
+    </script>
+
+    <!-- bootstrap JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Javascript -->
+    <script type = "text/javascript" language = "javascript">
+        $('#simpan').click(function() {
+            location.reload();
+        });
+    </script>
+
+    <!-- loader -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".bg-loader").hide();
+		})
+	</script>
+	<!-- akhir loader -->
+
+</body>
+</html>

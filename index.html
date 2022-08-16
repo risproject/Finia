@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISDIGITAL</title>
+
+    <!-- Framework & css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="app.css">
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+    <!-- loader -->
+	<div class="bg-loader">
+		<div class="kotak">
+			<img src="aset/F-S.png" alt="">
+			<p for="">sabar</p>
+		</div>
+	</div>
+
+    <!-- navbar -->
+    <nav class="navbar fixed-top shadow">
+        <div class="container">
+            <div class="col-9">
+                <button class="btn btn-light search-triger"><i class="bi bi-search"></i> Cari layanan, Produk...</button>
+            </div>
+            <div class="col-auto">
+                <i class="bi bi-bell-fill text-primary"></i>
+            </div>
+            <a href=""><img src="aset/fotoprofile.png" class="rounded-circle my-auto" width="35px" height="35px" alt=""></a>          
+        </div>
+    </nav>
+    
+    <!-- bottom Navbar -->
+    <nav class="navbar fixed-bottom">
+        <div class="container">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <a href="index.html" class="col-3 col-md text-center nav-menu active">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-house "></i>
+                        </button>
+                        <small class="nav-label">Home</small>
+                    </a>
+                    <a href="promo.html" class="col-3 col-md text-center nav-menu">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-bag-heart"></i>
+                        </button>
+                        <small class="nav-label">Promo</small>
+                    </a>
+                    <a href="post.html" class="col-3 col-md text-center nav-menu">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-send-plus"></i>
+                        </button>
+                        <small class="nav-label">Post</small>
+                    </a>
+                    <a href="profile.html" class="col-3 col-md text-center nav-menu">
+                        <button class="btn btn-light nav-icon my-auto">
+                            <i class="bi bi-person"></i>
+                        </button>
+                        <small class="nav-label">Profile</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- header -->
+    <section id="header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form onclick="geoLocationHide()">
+                        <input class="searchregion form-control" list="datalistOptions1" id="exampleDataList" placeholder="Cari atau Pilih Lokasi" type="search">
+                            <datalist id="datalistOptions1">
+                                <option value="Bener, Purworejo">
+                                <option value="Loano, Purworejo">
+                                <option value="Gebang, Purworejo">
+                                <option value="Bruno, Purworejo">
+                                <option value="Kemiri, Purworejo">
+                                <option value="Pituruh, Purworejo">
+                                <option value="Butuh, Purworejo">
+                                <option value="Kutoarjo, Purworejo">
+                                <option value="Bayan, Purworejo">
+                                <option value="Banyuurip, Purworejo">
+                                <option value="Purworejo, Purworejo">
+                                <option value="Kaligesing, Purworejo">
+                                <option value="Bagelen, Purworejo">
+                                <option value="Purwodadi, Purworejo">
+                                <option value="Ngombol, Purworejo">
+                                <option value="Grabag, Purworej">
+                            </datalist>
+                        </input>
+                        <button class="btn btn-danger mt-2 resetRegion" onclick="reset()">Reset</button>
+                    </form>
+                </div>
+                <div class="col-md-6 geoLocationDisplay">
+                    <span class="text-white">Gunakan auto <strong>Geolokasi</strong></span>
+                    <button class="btn btn-success deteksi"><i class="bi bi-geo-alt"></i> Cek lokasi</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- menu panel -->
+    <section id="panel">
+        <div class="container">
+            <!-- menubar -->
+            <div class="row menubar text-center pt-3">
+                <div class="col-md col-4">
+                    <div class="icon">
+                        <button class="btn tmenu" style="border-color: #28B463;"><i
+                                    class="bi bi-bicycle"></i></button>
+                        <p>Produk UMKM lokal</p>
+                    </div>
+                </div>
+                <div class="col-md col-4">
+                    <div class="icon">
+                        <button class="btn tmenu"style="border-color: #3382E2;"><i class="bi bi-exclamation-triangle"></i></button>
+                        <p>Toserba Lokal</p>
+                    </div>
+                </div>
+                <div class="col-md col-4">
+                    <div class="icon">
+                        <button class="btn tmenu" style="border-color: #2761D0"><i class="bi bi-exclamation-triangle"></i></button>
+                        <p>Komputer & Laptop</p>
+                    </div>
+                </div>
+                <div class="col-md col-4">
+                    <div class="icon">
+                        <button class="btn tmenu" style="border-color: #16A085;">
+                            <i class="bi bi-exclamation-triangle"></i></button>
+                        <p>Material & Bangunan</p>
+                    </div>
+                </div>
+                <div class="col-md col-4">
+                    <div class="icon">
+                        <button class="btn tmenu" style="border-color: #AD1457;"><i class="bi bi-exclamation-triangle"></i></button>
+                        <p>Travel & Wisata</p>
+                    </div>
+                </div>
+                <div class="col-md col-4">
+                    <div class="icon">
+                        <button class="btn tmenu" style="border-color: #6A1B9A;"><i class="bi bi-exclamation-triangle"></i></button>
+                        <p>Kirim PickSend</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="carousel" class="my-4">
+        <div class="container">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="aset/c1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                      <h5>Wisata Bukit Menoreh</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="aset/c2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                      <h5>Wisata #DiIndonesiaAja</h5>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="aset/c3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-md-block">
+                      <h5>Third slide label</h5>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+        
+    <section id="quickSale">
+        <div class="container">
+            <h4 class="pt-3 text-white">Quick Sale</h4>
+            <p class="text-white">Dapatkan barang sesuai keinginan sekarang <strong>sebelum kehabisan!</strong></p>
+            <div class="row justify-content-center kategori region">
+                <form action="" class="mb-3">
+                    <input class="searchbar form-control" list="datalistOptions2" id="exampleDataList" placeholder="Cari barang, lokasi, atau kategori" type="search">
+                    <datalist id="datalistOptions2">
+                        <option value="Buku & Kantor">
+                        <option value="Rumah & Dapur">
+                        <option value="Elektronik">
+                        <option value="HP & Laptop">
+                        <option value="Fashion">
+                        <option value="Otomotif">
+                        <option value="Kesehatan">
+                        <option value="Alat">
+                    </datalist>
+                    <button class="btn btn-danger mt-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+                </form>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="aset/beat.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Otomotif</h5>
+                          <span>Dijual motor honda beAT th 2017 mulus 9jt nego</span>
+                          <p>Purworejo, Purworejo</p>
+                          <span>13/08/2022</span>
+                          <a href="#" class="btn btn-success float-end">Beli sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="aset/crv.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Otomotif</h5>
+                          <span>Dijual mobil honda CRV th 2014 178jt nego</span>
+                          <p>Kaligesing, Purworejo</p>
+                          <span>13/08/2022</span>
+                          <a href="#" class="btn btn-success float-end">Beli sekarang</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="aset/supra.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Otomotif</h5>
+                          <span>Dijual motor honda SupraX th 2014 8jt nego</span>
+                          <p>Purworejo, Purworejo</p>
+                          <span>13/08/2022</span>
+                          <a href="#" class="btn btn-success float-end">Beli sekarang</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <!-- bootstrap JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- loader -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".bg-loader").hide();
+		})
+	</script>
+	<!-- akhir loader -->
+
+    <!-- searchbar datalist-->
+	<script>
+		$(".searchbar").on("keyup", function() {
+			$(".kategori .card").filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf($(".searchbar").val().toLowerCase()) > -1);
+			});
+		});
+
+        function reset() {
+           $(".col-md-3 .card").show();
+           form.reset();
+        }
+	</script>
+    <script>
+		$(".searchregion").on("keyup", function() {
+			$(".region .card").filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf($(".searchregion").val().toLowerCase()) > -1);
+			});
+		});
+
+        function reset() {
+           $(".col-md-3 .card").show();
+           form.reset();
+        }
+	</script>
+	<!-- akhir searchbar -->
+
+    <!-- Javascript Geolocation -->
+    <script>
+        const button = document.querySelector(".deteksi");
+            button.addEventListener("click", () => {
+                if (navigator.geolocation) {
+                    button.innerText = "Allow to detect your location";
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                }
+                else {
+                    button.innerText = "Geolocation is not supported by this browser.";
+                }
+            }
+            );
+
+            let allDetails;
+            function onSuccess(position) {
+                button.innerText = "Detecting your location...";
+                let { latitude, longitude } = position.coords;
+
+                fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=e228ae2eaf8f4751afb78f864bdf52ea`)
+                    //parsing json data into javascript object and returning it and in another then function receiving the object that is sent by the api.
+                    .then(response => response.json()).then(result => {
+                        allDetails = result.results[0].components;//getting the details of the location
+                        let { town, city, state, country } = allDetails;//getting the details of the location
+                        console.log(town, city, state, country);
+                        button.innerText = `${town} , ${city} , ${state} , ${country} `;
+                        //document.write(`${town} , ${city} , ${state} , ${country} `) ;
+
+                        console.table(allDetails);
+                    });
+            }
+            function onError(error) {
+                console.log(error);
+                if (error.code == 1) {//if user denied to share location
+                    button.innerText = "User denied the request for Geolocation.";
+                }
+                else if (error.code == 2) {//if location is not found
+                    button.innerText = "Location information is unavailable.";
+                }
+                else if (error.code == 3) {//if any other error occured
+                    button.innerText = "Something went wrong.";
+                }
+                button.setAttribute("disabled", "true");//if user denied the request for Geolocation, button will be disabled
+            }
+    </script>
+
+    <!-- Javascript Region Menu -->
+    <script type = "text/javascript" language = "javascript">
+        $(".resetRegion").hide();
+        function geoLocationHide() {
+           $(".resetRegion").show();
+           $(".geoLocationDisplay").hide();
+        }
+    </script>
+
+    <!-- darkmode -->
+    <script>
+        const save = document.querySelector('#save');
+        let tema = localStorage.getItem('tema');
+
+        if(!tema){
+            localStorage.setItem('tema', 'light');
+        }
+
+        const darkMode = () => {
+            document.body.classList.add('dark-mode');
+            document.getElementById("save").innerHTML = "Switch Light";
+            localStorage.setItem('tema', 'dark');
+        }
+        const lightMode = () => {
+            document.body.classList.remove('dark-mode');
+            document.getElementById("save").innerHTML = "Switch Dark";
+            localStorage.setItem('tema', 'light');
+        }
+
+        if(tema === 'dark'){
+            darkMode();
+        }
+
+        save.addEventListener('click', function() {
+            tema = localStorage.getItem('tema');
+            if(tema === 'light') {
+                darkMode();
+            } else {
+                lightMode();
+            }
+
+            e.preventDefault();
+        });
+    </script>
+    
+</body>
+</html>
