@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,12 +80,22 @@
                     <i class="bi bi-person-circle"></i>
                     <h4>Profile Dashboard</h4>
                 </div>
-                <div class="col-md-4 text-center">
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-gear"></i> Seting Preferensi</button>
-                    <button id="save" class="btn btn-primary">Switch Dark</button>
+                <div class="col-md-4 interact text-center">
+                    <button class="btn btn-danger shadow" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-gear"></i> Seting Preferensi</button>
+                </div>
+                <div class="col-md-4 interact i-mobile">
+                    <form class="input-group mb-3" id="form">
+                        <input id="input-name" type="text" class="form-control shadow" placeholder="Contoh: Kirim pesanan meja jam 9" aria-label="Contoh: " aria-describedby="button-addon2">
+                        <button id="btn-add" class="btn btn-primary shadow" type="submit"><i class="bi bi-plus-circle"></i></button>
+                    </form>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section class="container">
+      
+        <ul id="to-do-list"></ul>
     </section>
 
     <!-- Modal -->
@@ -128,6 +138,11 @@
                         <td>Kirim PickSend</td>
                         <td id="kpi">✔</td>
                         <td><button class="btn btn-primary">Ubah</button></td>
+                      </tr>
+                      <tr>
+                        <td><strong>Tema</strong></td>
+                        <td ></td>
+                        <td><a id="save" class="btn btn-primary">Switch Dark</a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -329,6 +344,72 @@
 		})
 	</script>
 	<!-- akhir loader -->
+
+    <!-- todo -->
+    <script>
+        const inputElem = document.querySelector('#input-name');
+        const form = document.querySelector('#form');
+        const listElem = document.querySelector('#to-do-list');
+        const buttonElem = document.querySelector('#to-do-list button');
+
+        const toDoArray = JSON.parse(localStorage.getItem('to-do-list')) || [];
+
+        function updateList(){
+        listElem.innerHTML = '';
+
+        for (const key in toDoArray) {
+            const li = document.createElement('li');
+
+            const span = document.createElement('span');
+            span.innerText = toDoArray[key];
+
+            const button = document.createElement('button');
+            button.innerText = 'Selesai';
+            button.setAttribute('key',key); 
+            button.classList.add('delete');
+
+            li.appendChild(span);
+            li.appendChild(button);
+            listElem.appendChild(li);
+        }
+
+        localStorage.setItem('to-do-list',JSON.stringify(toDoArray));
+        }
+
+        function addToList(value){
+        if (value === '') return;
+
+        toDoArray.push(value);
+
+        updateList();
+        inputElem.value = '';
+        inputElem.focus();
+        }
+
+        function deleteFromList(key){
+
+        toDoArray.splice(Number(key),1);
+
+        updateList();
+        inputElem.value = '';
+        inputElem.focus();
+        }
+
+
+        form.addEventListener('submit', e => {
+        e.preventDefault();
+        addToList(inputElem.value);
+        });
+
+        document.addEventListener('click', e => {
+        const el = e.target;
+        if (el.classList.contains('delete')){ 
+            deleteFromList(el.getAttribute('key'));
+        }
+        });
+
+        updateList();
+    </script>
 
 </body>
 </html>
