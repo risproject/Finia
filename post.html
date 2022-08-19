@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RISDIGITAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Finia</title>
+    <link rel="icon" href="aset/F-S.png">
 
     <!-- Framework & css -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
@@ -23,11 +24,11 @@
 	<div class="bg-loader">
 		<div class="kotak">
 			<img src="aset/F-S.png" alt="">
-            <h2>#Pakai <span> Finia </span></h2>
-            <p>From</p>
+            <h2>#Klik <span> Finia </span></h2>
+            <p>from</p>
             <h4>EFERES</h4>
 		</div>
-	</div>s
+	</div>
 
     <!-- navbar -->
     <nav class="navbar fixed-top shadow">
@@ -76,7 +77,7 @@
     <section id="panel">
         <div class="container">
             <!-- menubar -->
-            <div class="row menubar text-center mt-5 pt-2">
+            <div class="row menubar text-center mt-5 pt-4">
                 <div class="col-md col-4 pumkml">
                     <a href="post/pumkml.html" class="icon">
                         <button class="btn tmenu" style="border-color: #28B463;"><i class="bi bi-send-plus"></i></button>
@@ -121,29 +122,51 @@
     <section id="post">
         <div class="container">
             <div class="row post mt-3">
-                <form action="" class="produkLokalPost py-3">
+                <form name="QuickSaleData" class="produkLokalPost py-3">
                     <h4><i class="bi bi-plus-square"></i> Quick Sale</h4>
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">Selalu patuhi standar komunitas dan perhatikan etika
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="d-none alert alert-success alert-dismissible fade show my-alert" role="alert">
+                        <p>Kartu formulir berhasil diposting!</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <label for="uploadGambar" class="form-label ">Upload Gambar Ke GDrive & Paste link</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                      </div>
+                        <input name="link" type="text" class="form-control" id="inputLinkGambar" placeholder="Paste link URL gambar disini">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-clipboard-plus"></i></span>
+                    </div>
                     <div class="mb-3">
                         <label for="kategori" class="form-label">Kategori</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contoh: Rumah & Dapur">
+                        <select name="kategori" class="form-select" aria-label="Default select example">
+                            <option value="Buku, Kantor & Stationary">Buku, Kantor & Stationary</option>
+                            <option value="Rumah & Dapur">Rumah & Dapur</option>
+                            <option value="Elektronik">Elektronik</option>
+                            <option value="HP & Laptop">HP & Laptop</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Otomotif">Otomotif</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="Alat">Alat</option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Nama & Keterangan</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="ket" class="form-label">Judul & Keterangan / Deskripsi</label>
+                        <textarea name="keterangan" class="form-control" id="ket" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="lokasi" class="form-label">lokasi</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Contoh: Kutoarjo, Purworejo">
+                        <label for="lokasi" class="form-label">Lokasi</label>
+                        <input name="lokasi" type="text" class="form-control" id="lokasi" placeholder="Contoh: Kutoarjo, Purworejo">
                     </div>
-                    <div class="mb-3">
-                        <label for="Nomor WhatsApp" class="form-label">Nomor WhatsApp</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contoh: 08123456789">
+                    <label for="namaLengkap" class="form-label">Nama Lengkap & Nomor Whatsapp</label>
+                    <div class="mb-3 input-group">
+                        <input name="nama" type="text" class="form-control" id="namaLengkap" placeholder="Contoh: Faris M">
+                        <input name="notelp" type="number" class="form-control" id="nomorWhatsApp" placeholder="Contoh: 08123456789">
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-send-plus"></i> Kirim</button>
+                    <button type="submit" class="btn btn-primary btn-kirim"><i class="bi bi-send-plus"></i> Kirim</button>
+                    <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Mengirim...
+                    </button>
                 </form>
             </div>
         </div>
@@ -199,6 +222,30 @@
         </div>
         </div>
     </div>
+
+    <!-- save google sheet -->
+	<script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwZ3RtYTnj1oBG_J7mINMlscVDghhLqkZRvRGKXNhaig3QxoM9uRzZisMUuY8POo69qig/exec'
+        const form = document.forms['QuickSaleData']
+        const btnKirim = document.querySelector('.btn-kirim');
+	    const btnLoading = document.querySelector('.btn-loading');
+	    const myAlert = document.querySelector('.my-alert')
+
+        form.addEventListener('submit', e => {
+	    e.preventDefault()
+	    btnLoading.classList.toggle('d-none');
+	    btnKirim.classList.toggle('d-none');
+	    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+	    	.then(response => {
+	    		btnLoading.classList.toggle('d-none');
+	   			btnKirim.classList.toggle('d-none');
+	   			myAlert.classList.toggle('d-none');
+	   			form.reset();
+	    		console.log('Success!', response)})
+	    	.catch(error => console.error('Error!', error.message))
+	    })
+      </script>
+      <!-- akhir save to google sheet -->
 
     <script>
         // JS kl
@@ -376,6 +423,12 @@
 
             e.preventDefault();
         });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <script>
+        gsap.from('.icon', {duration:1, y:'100%', opacity:0, delay:1, ease:'elastic'})
+        gsap.from('.produkLokalPost', {duration:1, y:-50, opacity:0, delay:1.25, ease:'back'})
     </script>
 
     <!-- bootstrap JS -->

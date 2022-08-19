@@ -7,26 +7,32 @@ a {
   text-decoration: none;
   color: inherit;
 }
-a:hover{
+a:hover {
   text-decoration: none;
   color: inherit;
 }
-.dark-mode{
+.dark-mode {
   background: #131313;
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode .navbar{
+.dark-mode .navbar {
   background-color: rgba(0, 0, 0, 0.7);
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode h4, .darkmode p, .dark-mode small{
+.dark-mode h4,
+.darkmode p,
+.dark-mode small {
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode .card, .dark-mode .nav-icon, .dark-mode .form-control, .dark-mode .search-triger{
+.dark-mode .card,
+.dark-mode .nav-icon,
+.dark-mode .form-control,
+.dark-mode .search-triger,
+.dark-mode .form-select {
   background: #1b1b1b;
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode .btn{
+.dark-mode .btn {
   color: rgb(227, 227, 227) !important;
 }
 
@@ -75,7 +81,8 @@ a:hover{
   color: white;
   border: none;
 }
-.form-control{
+.form-control,
+.form-select {
   border-radius: 15px;
 }
 .btn {
@@ -111,7 +118,7 @@ a:hover{
   justify-content: center;
   align-items: center;
 }
-.bg-loader h2{
+.bg-loader h2 {
   position: fixed;
   top: 0;
   left: 0;
@@ -122,52 +129,54 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #131313 !important;
 }
-h2 span{
+h2 span {
   color: white;
-  background-color: #2761D0;
-  padding: 3px 10px 3px 10px;
+  background-color: #2761d0;
+  padding: 2px 8px 3px 8px;
   margin: 3px;
   border-radius: 10px;
-  
 }
-.bg-loader h4{
+.bg-loader h4 {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  margin-top: 545px;
+  margin-top: 585px;
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #2761D0;
+  color: #2761d0;
+  font-weight: 700;
 }
-.bg-loader p{
+.bg-loader p {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  margin-top: 510px;
+  margin-top: 550px;
   z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #131313 !important;
 }
-.kotak img{
+.kotak img {
   width: 130px;
-  animation: ngisi .75s forwards infinite;
+  animation: ngisi 0.75s forwards infinite;
   transform: translateY(-5px);
   opacity: 0.5;
 }
 @keyframes ngisi {
-  50%{
+  50% {
     transform: translateY(5px);
   }
   100% {
-    opacity: 1 ;
+    opacity: 1;
   }
 }
 
@@ -234,6 +243,11 @@ form .searchregion {
 }
 .card img {
   border-radius: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.card a {
+  margin: 10px 10px 20px 0;
 }
 
 /* promo */
@@ -249,7 +263,7 @@ form .searchregion {
 }
 
 /* profile */
-.profile-icon .bi{
+.profile-icon .bi {
   font-size: 75px;
   color: #3382e2;
   text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RISDIGITAL</title>
+    <title>Finia Console</title>
+    <link rel="icon" href="../aset/F-S.png">
 
     <!-- Framework & css -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
@@ -22,33 +23,55 @@
     <!-- post -->
     <section id="post">
         <div class="container">
-            <div class="row">
-                <div class="col-lg mt-4">
+            <div class="row post mt-3">
+                <div class="col-lg my-3">
                     <a href="../post.html" class="btn btn-danger"><i class="bi bi-arrow-left"></i> Kembali</a>
                 </div>
-                <form action="" class="quickSalePost py-3 mt-3">
+                <form name="QuickSaleData" class="produkLokalPost py-3">
                     <h4><i class="bi bi-plus-square"></i> Komputer & Laptop</h4>
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">Selalu patuhi standar komunitas dan perhatikan etika
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="d-none alert alert-success alert-dismissible fade show my-alert" role="alert">
+                        <p>Kartu formulir berhasil diposting!</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <label for="uploadGambar" class="form-label ">Upload Gambar Ke GDrive & Paste link</label>
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                      </div>
+                        <input name="link" type="text" class="form-control" id="inputLinkGambar" placeholder="Paste link URL gambar disini">
+                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-clipboard-plus"></i></span>
+                    </div>
                     <div class="mb-3">
                         <label for="kategori" class="form-label">Kategori</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contoh: Rumah & Dapur">
+                        <select name="kategori" class="form-select" aria-label="Default select example">
+                            <option value="Buku, Kantor & Stationary">Buku, Kantor & Stationary</option>
+                            <option value="Rumah & Dapur">Rumah & Dapur</option>
+                            <option value="Elektronik">Elektronik</option>
+                            <option value="HP & Laptop">HP & Laptop</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Otomotif">Otomotif</option>
+                            <option value="Kesehatan">Kesehatan</option>
+                            <option value="Alat">Alat</option>
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Nama & Keterangan</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="ket" class="form-label">Judul & Keterangan / Deskripsi</label>
+                        <textarea name="keterangan" class="form-control" id="ket" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="lokasi" class="form-label">lokasi</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Contoh: Kutoarjo, Purworejo">
+                        <label for="lokasi" class="form-label">Lokasi</label>
+                        <input name="lokasi" type="text" class="form-control" id="lokasi" placeholder="Contoh: Kutoarjo, Purworejo">
                     </div>
-                    <div class="mb-3">
-                        <label for="Nomor WhatsApp" class="form-label">Nomor WhatsApp</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Contoh: 08123456789">
+                    <label for="namaLengkap" class="form-label">Nama Lengkap & Nomor Whatsapp</label>
+                    <div class="mb-3 input-group">
+                        <input name="nama" type="text" class="form-control" id="namaLengkap" placeholder="Contoh: Faris M">
+                        <input name="notelp" type="number" class="form-control" id="nomorWhatsApp" placeholder="Contoh: 08123456789">
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-send-plus"></i> Kirim</button>
+                    <button type="submit" class="btn btn-primary btn-kirim"><i class="bi bi-send-plus"></i> Kirim</button>
+                    <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Mengirim...
+                    </button>
                 </form>
             </div>
         </div>

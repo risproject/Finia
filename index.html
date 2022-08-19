@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RISDIGITAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Finia</title>
+    <link rel="icon" href="aset/F-S.png">
 
     <!-- Framework & css -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
@@ -16,6 +17,8 @@
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     
@@ -23,8 +26,8 @@
 	<div class="bg-loader">
 		<div class="kotak">
 			<img src="aset/F-S.png" alt="">
-            <h2>#Pakai <span> Finia </span></h2>
-            <p>From</p>
+            <h2>#Klik <span> Finia </span></h2>
+            <p>from</p>
             <h4>EFERES</h4>
 		</div>
 	</div>
@@ -183,7 +186,7 @@
                   <div class="carousel-item">
                     <img src="aset/c3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-md-block">
-                      <h5>Third slide label</h5>
+                      <h5>Yuk jaga lingkungan!</h5>
                     </div>
                   </div>
                 </div>
@@ -207,7 +210,7 @@
                 <form action="" class="mb-3">
                     <input class="searchbar form-control" list="datalistOptions2" id="exampleDataList" placeholder="Cari barang, lokasi, atau kategori" type="search">
                     <datalist id="datalistOptions2">
-                        <option value="Buku & Kantor">
+                        <option value="Buku, Kantor & Stationary">
                         <option value="Rumah & Dapur">
                         <option value="Elektronik">
                         <option value="HP & Laptop">
@@ -218,42 +221,11 @@
                     </datalist>
                     <button class="btn btn-danger mt-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
                 </form>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="aset/beat.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Otomotif</h5>
-                          <span>Dijual motor honda beAT th 2017 mulus 9jt nego</span>
-                          <p>Purworejo, Purworejo</p>
-                          <span>13/08/2022</span>
-                          <a href="#" class="btn btn-success float-end">Beli sekarang</a>
-                        </div>
+                <main>
+                    <div class="card ">
+                        <div class="card-body"></div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="aset/crv.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Otomotif</h5>
-                          <span>Dijual mobil honda CRV th 2014 178jt nego</span>
-                          <p>Kaligesing, Purworejo</p>
-                          <span>13/08/2022</span>
-                          <a href="#" class="btn btn-success float-end">Beli sekarang</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="aset/supra.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Otomotif</h5>
-                          <span>Dijual motor honda SupraX th 2014 8jt nego</span>
-                          <p>Purworejo, Purworejo</p>
-                          <span>13/08/2022</span>
-                          <a href="#" class="btn btn-success float-end">Beli sekarang</a>
-                        </div>
-                    </div>
-                </div>
+                </main>
             </div>
         </div>
     </section>
@@ -269,6 +241,36 @@
 		})
 	</script>
 	<!-- akhir loader -->
+    
+    <!-- Sheet Display -->
+    <script>
+        const URL = "https://docs.google.com/spreadsheets/d/1c8dhJRb-FDS4lhppO7VCTdAc_KcWEOhkBJ-e0BatTgE/export?format=csv"
+        const card = document.querySelector(".card-body");
+        const main = document.querySelector("main");
+
+        // lakukan fetch terhadap url
+        fetch(URL).then(result=>result.text()).then(function(csvtext) {
+            return csv().fromString(csvtext);
+        }).then(function(csv) {
+            csv.forEach(function(row) {
+
+                var div = document.createElement("div");
+                main.classList.add("col-md-6")
+                div.classList.add("card");
+
+                card.innerHTML += "<img src='"+ row.link +"' alt='Error! Gambar gagal dimuat'></img>";
+                card.innerHTML += "<h5>" + row.kategori + "</h5>";
+                card.innerHTML += "<div>" + row.keterangan + "</div>";
+                card.innerHTML += "<div>" + row.timestamp + row.lokasi + "</div>";
+                card.innerHTML += "<div>" + row.nama + "</div>";
+                card.innerHTML += "<a class='btn btn-success' href='"+ row.notelp +"'>Hubungi</a>";
+                card.innerHTML += "<a class='btn btn-primary' href='"+ row.link +"'>Lihat gambar</a>";
+
+                card.appendChild(div);
+            });
+        });
+    </script>
+    <!-- Akhir sheet display -->
 
     <!-- searchbar datalist-->
 	<script>
@@ -387,6 +389,28 @@
             e.preventDefault();
         });
     </script>
+
+    <!-- animasi -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+	<script>
+		gsap.from('.icon', {duration:1, y:'100%', opacity:0, delay:1, ease:'elastic'})
+		gsap.from('.carousel', {duration:1, x:-50, opacity:0, delay:1.25, ease:'back'})
+	</script>
+
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		const card = document.querySelectorAll('.card')
+		card.forEach((img, i) =>{
+			img.dataset.aos = 'fade-up';
+			img.dataset.aosDelay = i*100;
+			img.dataset.aosOffset = 20;
+		});
+
+	    AOS.init({
+	    	once: true, 
+	    });
+	</script>
+	<!-- akhir animasi -->
     
 </body>
 </html>
