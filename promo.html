@@ -31,11 +31,9 @@
 	</div>
 
     <!-- navbar -->
-    <nav class="navbar fixed-top shadow">
+    <nav class="navbar fixed-top shadow-sm">
         <div class="container">
-            <a href="index.html" class="col-lg text-dark">
-                <h4><i class="bi bi-arrow-left-circle"></i> Home / Promo</h4>
-            </a>
+            <a href="index.html" class="btn me-2"><i class="bi bi-arrow-left-circle"></i> Home / Promo</a>
         </div>
     </nav>
     
@@ -74,13 +72,12 @@
     </nav>
 
     <!-- header -->
-    <section id="header">
+    <section id="header" style="margin-top: 60px;">
         <div class="container">
             <div class="row justify-content-center">
-                <strong class="text-white">Dapatkan promo menarik spesial <span>Kemerdekaan!</span></strong>
-                <form action="" class="mt-2">
-                    <input class="searchfilter form-control" placeholder="Cari promosi dari merchant" type="search">
-                    <button class="btn btn-danger mt-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+                <form action="" class="input-group">
+                    <input class="searchfilter form-control me-2" placeholder="Cari promosi dari merchant" type="search">
+                    <button class="btn btn-danger" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
                 </form>
             </div>
         </div>
@@ -90,16 +87,22 @@
     <section id="promo">
         <div class="container">
             <div class="mt-3 alert alert-primary alert-dismissible fade show" role="alert">
-                <strong>Diskon 12%</strong> untuk pembelian tas lokal di toko "Esa Bag"
+                <div class="col-2 fs-2"><i class="bi bi-shop-window"></i></div>
+                Dapatkan promo <strong>MERDEKA BELANJA</strong> dari merchant lokal
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <div class="mt-3 alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Diskon 20%</strong> untuk pembelian meja tamu di toko "Manunggal Furniture"
+                <div class="col-2 fs-2"><i class="bi bi-shop-window"></i></div>
+                Dapatkan promo <strong>Banting Harga</strong> dari merchant lokal
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
         </div>
     </section>
+
+    <button type="button" id="theme" class="btn btn-primary switch d-none">
+        <span onclick="setDarkMode(true)" id="darkBtn" class="">Mode: <strong> <i class="bi bi-moon"></i></strong></span>
+        <span onclick="setDarkMode(false)" id="lightBtn" class="lightbtn">Mode: <strong> <i class="bi bi-lightbulb"></i></strong></span>
+    </button>
 
     <!-- bootstrap JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -120,40 +123,50 @@
 	</script>
 
     <!-- darkmode -->
-    <script>
-        const save = document.querySelector('#save');
-        let tema = localStorage.getItem('tema');
-
-        if(!tema){
-            localStorage.setItem('tema', 'light');
-        }
-
-        const darkMode = () => {
-            document.body.classList.add('dark-mode');
-            document.getElementById("save").innerHTML = "Switch Light";
-            localStorage.setItem('tema', 'dark');
-        }
-        const lightMode = () => {
-            document.body.classList.remove('dark-mode');
-            document.getElementById("save").innerHTML = "Switch Dark";
-            localStorage.setItem('tema', 'light');
-        }
-
-        if(tema === 'dark'){
-            darkMode();
-        }
-
-        save.addEventListener('click', function() {
-            tema = localStorage.getItem('tema');
-            if(tema === 'light') {
-                darkMode();
-            } else {
-                lightMode();
-            }
-
-            e.preventDefault();
-        });
+	<script>
+        function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none"
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
     </script>
+    <!-- akhir darkmode -->
+   
+    <!-- local storage -->
+    <script>
+           if(localStorage.getItem('preferredTheme') == 'dark') {
+               setDarkMode(true)
+           }
+   
+           function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none" 
+               //tambahan localstorage
+                   localStorage.setItem('preferredTheme', 'dark');
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+                //tambahan localstorage
+                   localStorage.removeItem('preferredTheme');
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
+    </script>
+    <!-- akhir local storage -->
 
     <!-- loader -->
 	<script type="text/javascript">

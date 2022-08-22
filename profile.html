@@ -31,11 +31,9 @@
 	</div>
 
     <!-- navbar -->
-    <nav class="navbar fixed-top shadow">
+    <nav class="navbar fixed-top shadow-sm">
         <div class="container">
-            <a href="index.html" class="col-lg text-dark">
-                <h4><i class="bi bi-arrow-left-circle"></i> Home / Profile</h4>
-            </a>
+            <a href="index.html" class="btn me-2"><i class="bi bi-arrow-left-circle"></i> home / Profile</a>
         </div>
     </nav>
     
@@ -82,10 +80,14 @@
                 </div>
                 <div class="col-md-4 interact text-center">
                     <button class="btn btn-danger shadow" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-gear"></i> Seting Preferensi</button>
+                    <button type="button" id="theme" class="btn btn-primary switch">
+                        <span onclick="setDarkMode(true)" id="darkBtn" class="">Mode: <strong> <i class="bi bi-moon"></i></strong></span>
+                        <span onclick="setDarkMode(false)" id="lightBtn" class="lightbtn">Mode: <strong> <i class="bi bi-lightbulb"></i></strong></span>
+                    </button>
                 </div>
                 <div class="col-md-4 interact i-mobile">
                     <form class="input-group mb-3" id="form">
-                        <input id="input-name" type="text" class="form-control shadow" placeholder="Contoh: Kirim pesanan meja jam 9" aria-label="Contoh: " aria-describedby="button-addon2">
+                        <input id="input-name" type="text" class="form-control todoForm me-2" placeholder="Contoh: Kirim pesanan meja jam 9" aria-label="Contoh: " aria-describedby="button-addon2">
                         <button id="btn-add" class="btn btn-primary shadow" type="submit"><i class="bi bi-plus-circle"></i></button>
                     </form>
                 </div>
@@ -95,7 +97,9 @@
 
     <section class="container">
       
-        <ul id="to-do-list"></ul>
+        <div class="todo">
+            <ul id="to-do-list"></ul>
+        </div>
     </section>
 
     <!-- Modal -->
@@ -138,11 +142,6 @@
                         <td>Kirim PickSend</td>
                         <td id="kpi">✔</td>
                         <td><button class="btn btn-primary">Ubah</button></td>
-                      </tr>
-                      <tr>
-                        <td><strong>Tema</strong></td>
-                        <td ></td>
-                        <td><a id="save" class="btn btn-primary">Switch Dark</a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -302,40 +301,50 @@
     </script>
 
     <!-- darkmode -->
-    <script>
-        const save = document.querySelector('#save');
-        let tema = localStorage.getItem('tema');
-
-        if(!tema){
-            localStorage.setItem('tema', 'light');
-        }
-
-        const darkMode = () => {
-            document.body.classList.add('dark-mode');
-            document.getElementById("save").innerHTML = "Switch Light";
-            localStorage.setItem('tema', 'dark');
-        }
-        const lightMode = () => {
-            document.body.classList.remove('dark-mode');
-            document.getElementById("save").innerHTML = "Switch Dark";
-            localStorage.setItem('tema', 'light');
-        }
-
-        if(tema === 'dark'){
-            darkMode();
-        }
-
-        save.addEventListener('click', function() {
-            tema = localStorage.getItem('tema');
-            if(tema === 'light') {
-                darkMode();
-            } else {
-                lightMode();
-            }
-
-            e.preventDefault();
-        });
+	<script>
+        function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none"
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
     </script>
+    <!-- akhir darkmode -->
+   
+    <!-- local storage -->
+    <script>
+           if(localStorage.getItem('preferredTheme') == 'dark') {
+               setDarkMode(true)
+           }
+   
+           function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none" 
+               //tambahan localstorage
+                   localStorage.setItem('preferredTheme', 'dark');
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+                //tambahan localstorage
+                   localStorage.removeItem('preferredTheme');
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
+    </script>
+    <!-- akhir local storage -->
 
     <!-- loader -->
 	<script type="text/javascript">

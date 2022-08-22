@@ -18,7 +18,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     
@@ -33,15 +32,17 @@
 	</div>
 
     <!-- navbar -->
-    <nav class="navbar fixed-top shadow">
+    <nav class="navbar">
         <div class="container">
-            <div class="col-9">
-                <button class="btn btn-light search-triger"><i class="bi bi-search"></i> Cari layanan, Produk...</button>
+            <div class="col-auto">
+                <img src="aset/F-S.png" class="rounded-circle" width="35px" height="35px" alt=""> 
+            </div>
+            <div class="col-8">
+                <button class="btn btn-light search-triger" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"><i class="bi bi-search"></i> Cari layanan, Produk...</button>
             </div>
             <div class="col-auto">
-                <i class="bi bi-bell-fill text-primary"></i>
+                <img src="aset/fotoprofile.png" class="rounded-circle" width="35px" height="35px" alt="">
             </div>
-            <a href=""><img src="aset/fotoprofile.png" class="rounded-circle my-auto" width="35px" height="35px" alt=""></a>          
         </div>
     </nav>
     
@@ -82,10 +83,21 @@
     <!-- header -->
     <section id="header">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <form onclick="geoLocationHide()">
-                        <input class="searchregion form-control" list="datalistOptions1" id="exampleDataList" placeholder="Cari atau Pilih Lokasi" type="search">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4 class="fs-4 fw-normal lh-1">Hi,<span class="fw-semibold"> Faaris M</span></h4>
+                    <small class="lh-1">Explore, dan temukan barang sesuai pilihanmu!</small>
+                </div>
+                <div class="col-md-2 my-auto">
+                    <button type="button" id="theme" class="btn btn-primary switch">
+                        <span onclick="setDarkMode(true)" id="darkBtn" class="">Mode: <strong> <i class="bi bi-moon"></i></strong></span>
+                        <span onclick="setDarkMode(false)" id="lightBtn" class="lightbtn">Mode: <strong> <i class="bi bi-lightbulb"></i></strong></span>
+                    </button>
+                </div>
+                <div class="col-md-6 my-auto">
+                    <form class="input-group">
+                        <span class="my-auto me-2 searchIcon"><i class="bi bi-search"></i></span>
+                        <input onclick="resetShow()" class="searchregion form-control me-2" list="datalistOptions1" id="exampleDataList" placeholder="Pilih Lokasi..." type="search">
                             <datalist id="datalistOptions1">
                                 <option value="Bener, Purworejo">
                                 <option value="Loano, Purworejo">
@@ -104,13 +116,20 @@
                                 <option value="Ngombol, Purworejo">
                                 <option value="Grabag, Purworej">
                             </datalist>
+                        <input onclick="resetShow()" class="searchbar form-control" list="datalistOptions2" id="exampleDataList" placeholder="Cari kategori..." type="search">
+                            <datalist id="datalistOptions2">
+                                <option value="Buku, Kantor & Stationary">
+                                <option value="Rumah & Dapur">
+                                <option value="Elektronik">
+                                <option value="HP & Laptop">
+                                <option value="Fashion">
+                                <option value="Otomotif">
+                                <option value="Kesehatan">
+                                <option value="Alat">
+                            </datalist>
                         </input>
-                        <button class="btn btn-danger mt-2 resetRegion" onclick="reset()">Reset</button>
+                        <button class="btn btn-danger resetSearch ms-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
                     </form>
-                </div>
-                <div class="col-md-6 geoLocationDisplay">
-                    <span class="text-white">Gunakan auto <strong>Geolokasi</strong></span>
-                    <button class="btn btn-success deteksi"><i class="bi bi-geo-alt"></i> Cek lokasi</button>
                 </div>
             </div>
         </div>
@@ -118,117 +137,90 @@
 
     <!-- menu panel -->
     <section id="panel">
-        <div class="container">
+        <div class="container my-3 pt-3">
+            <div class="slides">
+                <span>
+                    <img src="aset/c1.jpg" alt="" height="150px">
+                    <p>Wisata Bukit Menoreh</p>
+                </span>
+                <span>
+                    <img src="aset/c2.jpg" alt="" height="150px">
+                    <p>Wisata #DiIndonesiaAja</p>
+                </span>
+                <span>
+                    <img src="https://source.unsplash.com/1600x900/?indonesia" alt="" height="150px">
+                    <p>Temukan barang menarik, harga terjangkau di UMKM lokal!</p>
+                </span>
+                <span>
+                    <img src="https://source.unsplash.com/1600x900/?nature,mount,field,indonesia" alt="" height="150px">
+                    <p>Cari refrensi wisata mu disini</p>
+                </span>
+            </div>
+
             <!-- menubar -->
             <div class="row menubar text-center pt-3">
                 <div class="col-md col-4">
                     <div class="icon">
-                        <button class="btn tmenu" style="border-color: #28B463;"><i class="bi bi-shop-window"></i></button>
+                        <button class="btn tmenu"><i class="bi bi-shop-window"></i></button>
                         <p>Produk UMKM lokal</p>
                     </div>
                 </div>
                 <div class="col-md col-4">
                     <div class="icon">
-                        <button class="btn tmenu"style="border-color: #3382E2;"><i class="bi bi-exclamation-triangle"></i></button>
+                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
                         <p>Galeri Warung</p>
                     </div>
                 </div>
                 <div class="col-md col-4">
                     <div class="icon">
-                        <button class="btn tmenu" style="border-color: #2761D0"><i class="bi bi-exclamation-triangle"></i></button>
+                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
                         <p>Komputer & Laptop</p>
                     </div>
                 </div>
                 <div class="col-md col-4">
                     <div class="icon">
-                        <button class="btn tmenu" style="border-color: #16A085;">
+                        <button class="btn tmenu">
                             <i class="bi bi-exclamation-triangle"></i></button>
                         <p>Material & Bangunan</p>
                     </div>
                 </div>
                 <div class="col-md col-4">
                     <div class="icon">
-                        <button class="btn tmenu" style="border-color: #AD1457;"><i class="bi bi-exclamation-triangle"></i></button>
+                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
                         <p>Travel & Wisata</p>
                     </div>
                 </div>
                 <div class="col-md col-4">
                     <div class="icon">
-                        <button class="btn tmenu" style="border-color: #6A1B9A;"><i class="bi bi-exclamation-triangle"></i></button>
+                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
                         <p>Kirim PickSend</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="carousel" class="my-4">
-        <div class="container">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="aset/c1.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-md-block">
-                      <h5>Wisata Bukit Menoreh</h5>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="aset/c2.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-md-block">
-                      <h5>Wisata #DiIndonesiaAja</h5>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="aset/c3.jpg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-md-block">
-                      <h5>Yuk jaga lingkungan!</h5>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </section>
         
     <section id="quickSale">
-        <div class="container">
-            <h4 class="pt-3 text-white">Quick Sale</h4>
-            <p class="text-white">Dapatkan barang sesuai keinginan sekarang <strong>sebelum kehabisan!</strong></p>
-            <div class="row justify-content-center kategori region">
-                <form action="" class="mb-3">
-                    <input class="searchbar form-control" list="datalistOptions2" id="exampleDataList" placeholder="Cari barang, lokasi, atau kategori" type="search">
-                    <datalist id="datalistOptions2">
-                        <option value="Buku, Kantor & Stationary">
-                        <option value="Rumah & Dapur">
-                        <option value="Elektronik">
-                        <option value="HP & Laptop">
-                        <option value="Fashion">
-                        <option value="Otomotif">
-                        <option value="Kesehatan">
-                        <option value="Alat">
-                    </datalist>
-                    <button class="btn btn-danger mt-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
-                </form>
-                <main>
-                    <div class="card ">
-                        <div class="card-body"></div>
-                    </div>
-                </main>
-            </div>
+        <div class="container py-3">
+            <h4>Quick Sale</h4>
+            <p>Dapatkan barang sesuai keinginan sekarang <strong>sebelum kehabisan!</strong></p>
+            <div id="mainContent" class="kategori region"></div>
         </div>
     </section>
+
+    <div class="offcanvas offcanvas-bottom" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <form class="offcanvas-header">
+            <button type="button" class="btn me-2" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left-circle"></i></button>
+            <input class="searchbar form-control shadow-sm" placeholder="Cari layanan, Produk, wisata" type="search">
+            <button class="btn btn-danger  ms-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i></button>
+        </form>
+        <div class="offcanvas-body">
+          <div>
+            <button class="btn btn-success deteksi"><i class="bi bi-geo-alt"></i> Cek Geolokasi</button>
+            I will not close if you click outside of me.
+          </div>
+        </div>
+    </div>
         
     <!-- bootstrap JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
@@ -245,8 +237,8 @@
     <!-- Sheet Display -->
     <script>
         const URL = "https://docs.google.com/spreadsheets/d/1c8dhJRb-FDS4lhppO7VCTdAc_KcWEOhkBJ-e0BatTgE/export?format=csv"
-        const card = document.querySelector(".card-body");
         const main = document.querySelector("main");
+        const mainContent = document.querySelector("#mainContent");
 
         // lakukan fetch terhadap url
         fetch(URL).then(result=>result.text()).then(function(csvtext) {
@@ -254,21 +246,35 @@
         }).then(function(csv) {
             csv.forEach(function(row) {
 
+                // membuat row
+                mainContent.classList.add("row");
+
+                // membuat kolom
                 var div = document.createElement("div");
-                main.classList.add("col-md-6")
-                div.classList.add("card");
+                div.classList.add("col-md-4");
 
-                card.innerHTML += "<img src='"+ row.link +"' alt='Error! Gambar gagal dimuat'></img>";
-                card.innerHTML += "<h5>" + row.kategori + "</h5>";
-                card.innerHTML += "<div>" + row.keterangan + "</div>";
-                card.innerHTML += "<div>" + row.timestamp + row.lokasi + "</div>";
-                card.innerHTML += "<div>" + row.nama + "</div>";
-                card.innerHTML += "<a class='btn btn-success' href='"+ row.notelp +"'>Hubungi</a>";
-                card.innerHTML += "<a class='btn btn-primary' href='"+ row.link +"'>Lihat gambar</a>";
+                // membuat kartu
+                var span = document.createElement("span");
+                span.classList.add("card");
 
-                card.appendChild(div);
+                // membuat kartu
+                var main = document.createElement("main");
+                main.classList.add("card-body");
+
+                main.innerHTML += "<img src='"+ row.link +"' alt='Error! Gambar gagal dimuat'></img>";
+                main.innerHTML += "<h5>" + row.nama + "</h5>";
+                main.innerHTML += "<p>" + row.keterangan + "</p>";
+                main.innerHTML += "<div>" + row.kategori + "</div>";
+                main.innerHTML += "<div>" + row.lokasi + row.timestamp + "</div>";
+                main.innerHTML += "<a class='btn btn-success' href='"+ row.notelp +"'>Hubungi</a>";
+                main.innerHTML += "<a class='btn btn-primary' href='"+ row.link +"'>Lihat gambar</a>";
+
+                mainContent.appendChild(div);
+                div.appendChild(span);
+                span.appendChild(main);
             });
         });
+
     </script>
     <!-- Akhir sheet display -->
 
@@ -280,20 +286,20 @@
 			});
 		});
 
-        function reset() {
-           $(".col-md-3 .card").show();
-           form.reset();
-        }
-	</script>
-    <script>
-		$(".searchregion").on("keyup", function() {
+        $(".searchregion").on("keyup", function() {
 			$(".region .card").filter(function() {
 				$(this).toggle($(this).text().toLowerCase().indexOf($(".searchregion").val().toLowerCase()) > -1);
 			});
 		});
 
+        $(".resetSearch").hide();
+        function resetShow() {
+            $(".searchIcon").hide(300);
+           $(".resetSearch").show(300);
+        }
+
         function reset() {
-           $(".col-md-3 .card").show();
+           $(".col-md-3 .card").show(500);
            form.reset();
         }
 	</script>
@@ -345,70 +351,57 @@
             }
     </script>
 
-    <!-- Javascript Region Menu -->
-    <script type = "text/javascript" language = "javascript">
-        $(".resetRegion").hide();
-        function geoLocationHide() {
-           $(".resetRegion").show();
-           $(".geoLocationDisplay").hide();
-        }
-    </script>
-
     <!-- darkmode -->
-    <script>
-        const save = document.querySelector('#save');
-        let tema = localStorage.getItem('tema');
-
-        if(!tema){
-            localStorage.setItem('tema', 'light');
-        }
-
-        const darkMode = () => {
-            document.body.classList.add('dark-mode');
-            document.getElementById("save").innerHTML = "Switch Light";
-            localStorage.setItem('tema', 'dark');
-        }
-        const lightMode = () => {
-            document.body.classList.remove('dark-mode');
-            document.getElementById("save").innerHTML = "Switch Dark";
-            localStorage.setItem('tema', 'light');
-        }
-
-        if(tema === 'dark'){
-            darkMode();
-        }
-
-        save.addEventListener('click', function() {
-            tema = localStorage.getItem('tema');
-            if(tema === 'light') {
-                darkMode();
-            } else {
-                lightMode();
-            }
-
-            e.preventDefault();
-        });
+	<script>
+        function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none"
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
     </script>
+    <!-- akhir darkmode -->
+   
+    <!-- local storage -->
+    <script>
+           if(localStorage.getItem('preferredTheme') == 'dark') {
+               setDarkMode(true)
+           }
+   
+           function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none" 
+               //tambahan localstorage
+                   localStorage.setItem('preferredTheme', 'dark');
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+                //tambahan localstorage
+                   localStorage.removeItem('preferredTheme');
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
+    </script>
+    <!-- akhir local storage -->
 
     <!-- animasi -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
 	<script>
 		gsap.from('.icon', {duration:1, y:'100%', opacity:0, delay:1, ease:'elastic'})
-		gsap.from('.carousel', {duration:1, x:-50, opacity:0, delay:1.25, ease:'back'})
-	</script>
-
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	<script>
-		const card = document.querySelectorAll('.card')
-		card.forEach((img, i) =>{
-			img.dataset.aos = 'fade-up';
-			img.dataset.aosDelay = i*100;
-			img.dataset.aosOffset = 20;
-		});
-
-	    AOS.init({
-	    	once: true, 
-	    });
+		gsap.from('.carousel', {duration:1, y:-50, opacity:0, delay:1.25, ease:'back'})
 	</script>
 	<!-- akhir animasi -->
     

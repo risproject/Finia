@@ -2,13 +2,17 @@
 
 /*Desktop*/
 @media screen and (min-width: 768px) {
-  .interact{
+  .interact {
     margin: auto;
+  }
+  #header{
+    top: 0;
   }
 }
 
-body {
-  overflow: auto;
+#panel .container, #quickSale .container{
+  background-color: #EFF6F6;
+  border-radius: 20px;
 }
 a {
   text-decoration: none;
@@ -18,29 +22,40 @@ a:hover {
   text-decoration: none;
   color: inherit;
 }
-.dark-mode {
+body.darkmode {
   background: #131313;
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode .navbar {
+body.darkmode .navbar, body.darkmode #header {
   background-color: rgba(0, 0, 0, 0.7);
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode h4,
-.darkmode p,
-.dark-mode small {
+body.darkmode h4,
+body.darkmode p,
+body.darkmode small {
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode .card,
-.dark-mode .nav-icon,
-.dark-mode .form-control,
-.dark-mode .search-triger,
-.dark-mode .form-select, .dark-mode ul li {
+body.darkmode #panel .container,
+body.darkmode #quickSale .container,
+body.darkmode .nav-icon, body.darkmode .offcanvas,
+body.darkmode ul li {
   background: #1b1b1b;
   color: rgb(227, 227, 227) !important;
 }
-.dark-mode .btn {
+body.darkmode .btn {
   color: rgb(227, 227, 227) !important;
+}
+body.darkmode .card, 
+body.darkmode .form-control,
+body.darkmode .search-triger{
+  background-color: #2C2C2C;
+  color: rgb(227, 227, 227) !important;
+}
+body.darkmode .lightbtn{
+	display: block;
+}
+.lightbtn{
+	display: none;
 }
 
 /* navigation */
@@ -48,7 +63,17 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
 }
-
+.search-triger {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 100%;
+  box-shadow: none !important;
+}
+.search-triger:hover {
+  background-color: #3382e2;
+  color: white;
+  border: none;
+}
 .nav-label {
   display: none;
   text-decoration: none;
@@ -62,7 +87,7 @@ a:hover {
 }
 .nav-menu:hover .nav-icon,
 .active .nav-icon {
-  background-color: #3382e2;
+  background-color: #3382e2 !important;
   color: white;
   transition: 0.4s;
   transform: translateY(-20px);
@@ -77,28 +102,20 @@ a:hover {
 }
 
 /* utility */
-.search-triger {
-  border: none;
-  box-shadow: none !important;
-  background-color: rgba(255, 255, 255, 0.5);
-  width: 100%;
-}
-.search-triger:hover {
-  background-color: #3382e2;
-  color: white;
-  border: none;
-}
 .form-control,
 .form-select {
   border-radius: 15px;
 }
 .btn {
-  border-radius: 20px;
+  border-radius: 20px !important;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .btn-primary {
   background-color: #3382e2;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.btn-reset{
+  font-size: 14px;
 }
 .carousel-item img {
   border-radius: 20px;
@@ -110,6 +127,42 @@ a:hover {
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
+}
+.offcanvas {
+  height: 95vh !important;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.slides {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.slides::-webkit-scrollbar { display: none; }
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  margin: 0 5px 0 5px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.slides span{
+  margin: 0 10px 10px 0;
+}
+.slides span img{
+  border-radius: 15px;
+}
+.slides span p{
+  text-align: center;
+  color: white;
+  margin-top: -50px;
 }
 
 /* loader */
@@ -189,16 +242,15 @@ h2 span {
 
 /* header */
 #header {
-  background-color: #3382e2;
-  margin-top: 65px;
-  border-radius: 20px;
-  padding: 20px 0 20px 0;
+  position: sticky;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  padding: 10px 0 10px 0;
 }
-form .searchregion {
-  width: 100%;
-}
-.searchregion {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+
+form .searchregion, .searchbar, .todoForm {
+  background-color: #EFF6F6;
   border-radius: 20px !important;
   border: none;
 }
@@ -212,41 +264,35 @@ form .searchregion {
   width: 90px;
   height: 75px;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
-  border: 2px solid;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   transition: 0.25s;
   font-size: 25px;
 }
 .tmenu:hover {
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transform: translateY(-5px);
   transition: 0.25s;
 }
-.icon {
-  text-align: center;
-  margin-bottom: 15px;
-}
 .icon p {
   font-size: 15px;
-  margin: 0;
-  padding: 0;
+  line-height: 1;
+  margin-top: 5px;
 }
+.icon{
+  text-align: center;
+}
+
+
 /* quickSale */
-#quickSale {
-  background-color: #3382e2;
-  border-radius: 20px;
-  margin-bottom: 60px;
-}
-.kategori .searchbar {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
-  border-radius: 20px !important;
-  border: none;
+#quickSale .container{
+  margin-bottom: 75px;
 }
 .card {
   border-radius: 15px;
   margin-bottom: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: none;
 }
 .card img {
   border-radius: 15px;
@@ -259,7 +305,7 @@ form .searchregion {
 
 /* promo */
 .searchfilter {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 20px !important;
   border: none;
 }
@@ -277,14 +323,14 @@ form .searchregion {
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-ul {
+.todo ul {
   list-style-type: none;
   display: flex;
   padding: 0;
   flex-direction: column;
 }
 
-ul li {
+.todo ul li {
   margin: 5px auto;
   padding: 10px 20px;
   outline: 1px solid var(--primary-color);
@@ -293,10 +339,11 @@ ul li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+  background-color: #EFF6F6;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-ul li button {
+.todo ul li button {
   background-color: #198754;
   padding: 0 15px;
   color: white;
@@ -304,10 +351,9 @@ ul li button {
   border-radius: 10px;
 }
 
-ul li button:hover {
+.todo ul li button:hover {
   background-color: #3382e2;
 }
-
 
 .produkLokalPost,
 .quickSalePost {
@@ -325,7 +371,24 @@ ul li button:hover {
   .geoLocationDisplay {
     margin: 10px 0 0 0;
   }
-  .i-mobile{
-    margin-top: 40px;
+  #header{
+    top: -115px;
+  }
+  #header .switch{
+    margin: 10px 0 10px 0;
+  }
+  .i-mobile {
+    margin-top: 20px;
+  }
+  .card-body h5{
+    font-size: 16px;
+  }
+  .card-body p, .card-body a{
+    display: none;
+    transition: 0.5s;
+  }
+  .col-md-4:hover .card-body p, .col-md-4:hover .card-body a{
+    display: inline-block;
+    transition: 0.5s;
   }
 }
