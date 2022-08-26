@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Finia</title>
+    <link rel="icon" href="aset/F-S.png">
+
+    <!-- Framework & css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="app.css">
+
+    <!-- Jquery JS-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- loader -->
+	<div class="bg-loader">
+		<div class="kotak">
+			<img src="aset/F-S.png" alt="">
+            <h2>#Klik <span> Finia </span></h2>
+            <p>from</p>
+            <h4>EFERES</h4>
+		</div>
+	</div>
+
+    <!-- navbar -->
+    <nav class="navbar fixed-top shadow-sm">
+        <div class="container">
+            <a href="index.html" class="me-2"><i class="bi bi-arrow-left-circle"></i> Beranda / Kontak Finia Developer</a>
+            <div class="col-auto">
+                <a href="dev.html"><img src="aset/i2.png" class="rounded-circle" width="35px" height="35px" alt=""></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- post -->
+    <section id="post">
+        <div class="container mt-5 pt-3">
+            <div class="row justify-content-center post">
+                <div class="col-md-4 profile-icon text-center">
+                    <img src="aset/F-S.png" alt="" width="100px">
+                    <h4>Hai,  <span onclick="gantiNama()" class="namaJudul fw-semibold"></span> <i class="bi bi-person"></i></h4>
+                    <p>Sekarang kamu dapat menghubungi Finia Developer untuk melaporkan bug/masalah, serta mentakedown konten.</p>
+                </div>
+                <form name="DevContact" class="produkLokalPost py-3 col-md-6">
+                    <h4><i class="bi bi-send-plus"></i> Kontak Finia Developer</h4>
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">Kirim gambar melalui E-Mail developer bila diperlukan <strong>eferes.ind@gmail.com</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div class="d-none alert alert-success alert-dismissible fade show my-alert" role="alert">
+                        <p>Kartu formulir berhasil diposting!</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <label for="namaLengkap" class="form-label">Nama Lengkap & Nomor Whatsapp</label>
+                    <div class="mb-3 input-group">
+                        <input name="nama" type="text" class="form-control" id="namaLengkap" placeholder="Contoh: Faris Muhammad">
+                        <input name="notelp" type="number" class="form-control" id="nomorWhatsApp" placeholder="Contoh: 08123456789">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ket" class="form-label">Keterangan / Deskripsi</label>
+                        <textarea name="keterangan" class="form-control" id="ket" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-Mail</label>
+                        <input name="email" type="email" class="form-control" placeholder="Contoh: faaris@gmail.com">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-kirim"><i class="bi bi-send-plus"></i> Kirim</button>
+                    <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Mengirim...
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <button type="button" id="theme" class="btn btn-primary switch d-none">
+        <span onclick="setDarkMode(true)" id="darkBtn" class="">Mode: <strong> <i class="bi bi-moon"></i></strong></span>
+        <span onclick="setDarkMode(false)" id="lightBtn" class="lightbtn">Mode: <strong> <i class="bi bi-lightbulb"></i></strong></span>
+    </button>
+
+    <!-- save google sheet -->
+	<script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzszH4RBfKf7-Vaz4Cp0gCSOzDZuaLtfyI1HIdGY55VY8wFQEDyixhw9O4umqNJdcleGA/exec'
+        const form = document.forms['DevContact']
+        const btnKirim = document.querySelector('.btn-kirim');
+	    const btnLoading = document.querySelector('.btn-loading');
+	    const myAlert = document.querySelector('.my-alert')
+
+        form.addEventListener('submit', e => {
+	    e.preventDefault()
+	    btnLoading.classList.toggle('d-none');
+	    btnKirim.classList.toggle('d-none');
+	    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+	    	.then(response => {
+	    		btnLoading.classList.toggle('d-none');
+	   			btnKirim.classList.toggle('d-none');
+	   			myAlert.classList.toggle('d-none');
+	   			form.reset();
+	    		console.log('Success!', response)})
+	    	.catch(error => console.error('Error!', error.message))
+	    })
+      </script>
+    <!-- akhir save to google sheet -->
+
+    <!-- darkmode -->
+	<script>
+        function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none"
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
+    </script>
+    <!-- akhir darkmode -->
+   
+    <!-- local storage -->
+    <script>
+           if(localStorage.getItem('preferredTheme') == 'dark') {
+               setDarkMode(true)
+           }
+   
+           function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none" 
+               //tambahan localstorage
+                   localStorage.setItem('preferredTheme', 'dark');
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+                //tambahan localstorage
+                   localStorage.removeItem('preferredTheme');
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
+    </script>
+    <script>
+        const namaJudul = document.querySelector(".namaJudul");
+        let nama = localStorage.getItem('nama');
+        if(!nama){
+            let nama = prompt("Masukkan nama anda:");
+            localStorage.setItem('nama', nama);
+        }
+        namaJudul.innerHTML = ` ${nama}`;
+        
+        const gantiNama  = (e) => {
+            nama = prompt("Masukkan nama baru anda:");
+            localStorage.setItem('nama', nama);
+            e.preventdefault();
+        }
+    </script>
+    <!-- akhir local storage -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+    <script>
+        gsap.from('.icon', {duration:1, y:'100%', opacity:0, delay:1, ease:'elastic'})
+        gsap.from('.produkLokalPost', {duration:1, y:-50, opacity:0, delay:1.25, ease:'back'})
+    </script>
+
+    <!-- bootstrap JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <!-- loader -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".bg-loader").hide();
+		})
+	</script>
+	<!-- akhir loader -->
+
+</body>
+</html>

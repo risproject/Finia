@@ -38,10 +38,10 @@
                 <img src="aset/F-S.png" class="rounded-circle" width="35px" height="35px" alt=""> 
             </div>
             <div class="col-8">
-                <button class="btn btn-light search-triger" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"><i class="bi bi-search"></i> Cari layanan, Produk...</button>
+                <a href="content/AIO.html"><button class="btn btn-light search-triger"><i class="bi bi-search"></i> Cari layanan, Produk...</button></a>
             </div>
             <div class="col-auto">
-                <img src="aset/fotoprofile.png" class="rounded-circle" width="35px" height="35px" alt="">
+                <a href="dev.html"><img src="aset/i2.png" class="rounded-circle" width="35px" height="35px" alt=""></a>
             </div>
         </div>
     </nav>
@@ -55,7 +55,7 @@
                         <button class="btn btn-light nav-icon my-auto">
                             <i class="bi bi-house "></i>
                         </button>
-                        <small class="nav-label">Home</small>
+                        <small class="nav-label">Beranda</small>
                     </a>
                     <a href="promo.html" class="col-3 col-md text-center nav-menu">
                         <button class="btn btn-light nav-icon my-auto">
@@ -85,19 +85,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h4 class="fs-4 fw-normal lh-1">Hi,<span class="fw-semibold"> Faaris M</span></h4>
-                    <small class="lh-1">Explore, dan temukan barang sesuai pilihanmu!</small>
+                    <h4 class="fs-4 fw-normal lh-1">Hai,<span onclick="gantiNama()" class="fw-semibold namaJudul"></span> <i class="bi bi-person"></i></h4>
+                    <small class="lh-1">Explore dan temukan barang sesuai pilihanmu!</small>
                 </div>
                 <div class="col-md-2 my-auto">
                     <button type="button" id="theme" class="btn btn-primary switch">
-                        <span onclick="setDarkMode(true)" id="darkBtn" class="">Mode: <strong> <i class="bi bi-moon"></i></strong></span>
-                        <span onclick="setDarkMode(false)" id="lightBtn" class="lightbtn">Mode: <strong> <i class="bi bi-lightbulb"></i></strong></span>
+                        <span onclick="setDarkMode(true)" id="darkBtn" class="">Mode <strong> <i class="bi bi-moon"></i></strong></span>
+                        <span onclick="setDarkMode(false)" id="lightBtn" class="lightbtn">Mode <strong> <i class="bi bi-lightbulb"></i></strong></span>
                     </button>
                 </div>
                 <div class="col-md-6 my-auto">
                     <form class="input-group">
                         <span class="my-auto me-2 searchIcon"><i class="bi bi-search"></i></span>
-                        <input onclick="resetShow()" class="searchregion form-control me-2" list="datalistOptions1" id="exampleDataList" placeholder="Pilih Lokasi..." type="search">
+                        <input onclick="resetShow()" class="searchregion form-control me-2" list="datalistOptions1" id="exampleDataList" placeholder="Cari Lokasi..." type="search">
                             <datalist id="datalistOptions1">
                                 <option value="Bener, Purworejo">
                                 <option value="Loano, Purworejo">
@@ -116,7 +116,7 @@
                                 <option value="Ngombol, Purworejo">
                                 <option value="Grabag, Purworej">
                             </datalist>
-                        <input onclick="resetShow()" class="searchbar form-control" list="datalistOptions2" id="exampleDataList" placeholder="Cari kategori..." type="search">
+                        <input onclick="resetShow()" class="searchbar form-control" list="datalistOptions2" id="exampleDataList" placeholder="Pilih kategori..." type="search">
                             <datalist id="datalistOptions2">
                                 <option value="Buku, Kantor & Stationary">
                                 <option value="Rumah & Dapur">
@@ -126,6 +126,7 @@
                                 <option value="Otomotif">
                                 <option value="Kesehatan">
                                 <option value="Alat">
+                                <option value="Kuliner"></option>
                             </datalist>
                         </input>
                         <button class="btn btn-danger resetSearch ms-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
@@ -137,74 +138,74 @@
 
     <!-- menu panel -->
     <section id="panel">
-        <div class="container my-3 pt-3">
+        <div class="container mb-3 mt-1 pt-3">
             <div class="slides">
                 <span>
                     <img src="aset/c1.jpg" alt="" height="150px">
-                    <p>Wisata Bukit Menoreh</p>
+                    <p class="text-wrap">Wisata Bukit Menoreh</p>
                 </span>
                 <span>
                     <img src="aset/c2.jpg" alt="" height="150px">
-                    <p>Wisata #DiIndonesiaAja</p>
+                    <p class="text-wrap">Wisata #DiIndonesiaAja</p>
                 </span>
                 <span>
                     <img src="https://source.unsplash.com/1600x900/?indonesia" alt="" height="150px">
-                    <p>Temukan barang menarik, harga terjangkau di UMKM lokal!</p>
+                    <p class="text-wrap">Temukan barang menarik, harga terjangkau di UMKM lokal!</p>
                 </span>
                 <span>
                     <img src="https://source.unsplash.com/1600x900/?nature,mount,field,indonesia" alt="" height="150px">
-                    <p>Cari refrensi wisata mu disini</p>
+                    <p class="text-wrap">Cari refrensi wisata mu disini</p>
                 </span>
             </div>
 
             <!-- menubar -->
-            <div class="row menubar text-center pt-3">
+            <div class="row menubar text-center">
                 <div class="col-md col-4">
-                    <div class="icon">
-                        <button class="btn tmenu"><i class="bi bi-shop-window"></i></button>
+                    <a href="content/UMKM.html" class="icon">
+                        <button class="btn tmenu bg-warning bg-opacity-10" style="color: #F39C12 !important;"><i class="bi bi-basket"></i></button>
                         <p>Produk UMKM lokal</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md col-4">
-                    <div class="icon">
-                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
+                    <a href="content/Galeri Warung.html" class="icon">
+                        <button class="btn tmenu bg-primary bg-opacity-10" style="color: #3382E2 !important;"><i class="bi bi-shop"></i></button>
                         <p>Galeri Warung</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md col-4">
-                    <div class="icon">
-                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
+                    <a href="content/Komputer Laptop.html" class="icon">
+                        <button class="btn tmenu bg-success bg-opacity-10" style="color: #16A085 !important;"><i class="bi bi-pc-display"></i></button>
                         <p>Komputer & Laptop</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md col-4">
-                    <div class="icon">
-                        <button class="btn tmenu">
-                            <i class="bi bi-exclamation-triangle"></i></button>
+                    <a href="content/Material Bangunan.html" class="icon">
+                        <button class="btn tmenu bg-danger bg-opacity-10" style="color: #AD1457 !important;">
+                            <i class="bi bi-hammer"></i></button>
                         <p>Material & Bangunan</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md col-4">
-                    <div class="icon">
-                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
+                    <a href="content/Travel Wisata.html" class="icon">
+                        <button class="btn tmenu bg-info bg-opacity-10"style="color: #2761D0 !important;"><i class="bi bi-image-alt"></i></button>
                         <p>Travel & Wisata</p>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-md col-4">
-                    <div class="icon">
-                        <button class="btn tmenu"><i class="bi bi-exclamation-triangle"></i></button>
-                        <p>Kirim PickSend</p>
-                    </div>
+                    <a href="content/Layanan Picksend.html" class="icon">
+                        <button class="btn tmenu bg-secondary bg-opacity-10" style="color: #6A1B9A !important;"><i class="bi bi-mailbox2"></i></button>
+                        <p>Layanan & PickSend</p>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
         
-    <section id="quickSale">
+    <section id="feed">
         <div class="container py-3">
-            <h4>Quick Sale</h4>
-            <p>Dapatkan barang sesuai keinginan sekarang <strong>sebelum kehabisan!</strong></p>
-            <div id="mainContent" class="kategori region"></div>
+            <h4>Feed</h4>
+            <p>Berbagai ulasan, cerita, promosi, dan short article <strong>disini!</strong></p>
+            <div id="feedContent" class="kategori region"></div>
         </div>
     </section>
 
@@ -215,10 +216,8 @@
             <button class="btn btn-danger  ms-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i></button>
         </form>
         <div class="offcanvas-body">
-          <div>
-            <button class="btn btn-success deteksi"><i class="bi bi-geo-alt"></i> Cek Geolokasi</button>
-            I will not close if you click outside of me.
-          </div>
+            <span class="deteksi"><i class="bi bi-geo-alt"></i> Cek Geolokasi</span>
+            <div id="feedContent" class="kategori region"></div>
         </div>
     </div>
         
@@ -238,7 +237,7 @@
     <script>
         const URL = "https://docs.google.com/spreadsheets/d/1c8dhJRb-FDS4lhppO7VCTdAc_KcWEOhkBJ-e0BatTgE/export?format=csv"
         const main = document.querySelector("main");
-        const mainContent = document.querySelector("#mainContent");
+        const feedContent = document.querySelector("#feedContent");
 
         // lakukan fetch terhadap url
         fetch(URL).then(result=>result.text()).then(function(csvtext) {
@@ -247,11 +246,11 @@
             csv.forEach(function(row) {
 
                 // membuat row
-                mainContent.classList.add("row");
+                feedContent.classList.add("row");
 
                 // membuat kolom
                 var div = document.createElement("div");
-                div.classList.add("col-md-4");
+                div.classList.add("col-md-3");
 
                 // membuat kartu
                 var span = document.createElement("span");
@@ -269,7 +268,7 @@
                 main.innerHTML += "<a class='btn btn-success' href='"+ row.notelp +"'>Hubungi</a>";
                 main.innerHTML += "<a class='btn btn-primary' href='"+ row.link +"'>Lihat gambar</a>";
 
-                mainContent.appendChild(div);
+                feedContent.appendChild(div);
                 div.appendChild(span);
                 span.appendChild(main);
             });
@@ -395,13 +394,28 @@
                document.body.classList.toggle("darkmode");
            }
     </script>
+    <script>
+        const namaJudul = document.querySelector(".namaJudul");
+        let nama = localStorage.getItem('nama');
+        if(!nama){
+            let nama = prompt("Masukkan nama anda:");
+            localStorage.setItem('nama', nama);
+        }
+        namaJudul.innerHTML = ` ${nama}`;
+        
+        const gantiNama  = (e) => {
+            nama = prompt("Masukkan nama baru anda:");
+            localStorage.setItem('nama', nama);
+            e.preventdefault();
+        }
+    </script>
     <!-- akhir local storage -->
 
     <!-- animasi -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
 	<script>
-		gsap.from('.icon', {duration:1, y:'100%', opacity:0, delay:1, ease:'elastic'})
-		gsap.from('.carousel', {duration:1, y:-50, opacity:0, delay:1.25, ease:'back'})
+		gsap.from('.col-md', {duration:1, y:'100%', opacity:0, delay:1, ease:'elastic'})
+		gsap.from('.slides', {duration:1, x:-50, opacity:0, delay:1.25, ease:'back'})
 	</script>
 	<!-- akhir animasi -->
     

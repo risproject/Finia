@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Finia</title>
+    <link rel="icon" href="../aset/F-S.png">
+
+    <!-- Framework & css -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../app.css">
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
+</head>
+<body>
+
+    <!-- loader -->
+	<div class="bg-loader">
+		<div class="kotak">
+			<img src="../aset/F-S.png" alt="">
+            <h2>#Klik <span> Finia </span></h2>
+            <p>from</p>
+            <h4>EFERES</h4>
+		</div>
+	</div>
+
+    <!-- navbar -->
+    <nav class="navbar shadow-sm">
+        <div class="container">
+            <a href="../index.html" class="me-2"><i class="bi bi-arrow-left-circle"></i> Beranda / Komputer Laptop</a>
+            <div class="col-auto"> 
+                <img src="../aset/i2.png" class="rounded-circle" width="35px" height="35px" alt="">
+            </div>
+        </div>
+    </nav>
+
+    <!-- header -->
+    <section id="header2">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <h4 class="fs-4 fw-normal lh-1">Hai,<span class="fw-semibold namaJudul"></span></h4>
+                    <small>Cari kebutuhan komputer / laptop mu disini!</small>
+                </div>
+                <div class="col-md-8 my-auto">
+                    <form action="" class="input-group">
+                        <span class="my-auto me-2 searchIcon"><i class="bi bi-search"></i></span>
+                        <input class="searchfilter form-control me-2" onclick="resetShow()" placeholder="Cari kebutuhan komputer / laptop" type="search">
+                        <button class="btn btn-danger me-2 btn-reset" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop"><i class="bi bi-arrow-clockwise"></i> Filter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="offcanvas offcanvas-bottom" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <form class="offcanvas-header">
+            <button type="button" class="btn me-2" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left-circle"></i></button>
+            <h4>Filter pencarian</h4>
+            <button class="btn btn-danger  ms-2" onclick="reset()"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+        </form>
+        <div class="offcanvas-body">
+            <form class="input-group">
+                <span class="my-auto me-2 searchIcon"><i class="bi bi-search"></i></span>
+                <input onclick="resetShow()" class="searchregion form-control me-2" list="datalistOptions1" id="exampleDataList" placeholder="Cari Lokasi..." type="search">
+                    <datalist id="datalistOptions1">
+                        <option value="Bener, Purworejo">
+                        <option value="Loano, Purworejo">
+                        <option value="Gebang, Purworejo">
+                        <option value="Bruno, Purworejo">
+                        <option value="Kemiri, Purworejo">
+                        <option value="Pituruh, Purworejo">
+                        <option value="Butuh, Purworejo">
+                        <option value="Kutoarjo, Purworejo">
+                        <option value="Bayan, Purworejo">
+                        <option value="Banyuurip, Purworejo">
+                        <option value="Purworejo, Purworejo">
+                        <option value="Kaligesing, Purworejo">
+                        <option value="Bagelen, Purworejo">
+                        <option value="Purwodadi, Purworejo">
+                        <option value="Ngombol, Purworejo">
+                        <option value="Grabag, Purworej">
+                    </datalist>
+                <select onclick="resetShow()" class="searchbar form-control" placeholder="Pilih kategori..." type="select">
+                    <option value="Baru">Baru</option>
+                    <option value="Bekas">Bekas</option>
+                </select>
+            </form>
+            <p class="mt-3">Klik <strong>Reset</strong> untuk menghapus semua filter, dan jika produk tidak muncul</p>
+        </div>
+    </div>
+
+    <section id="mainContent my-3">
+        <div class="container py-3">
+            <div class=" mb-3 slides">
+                <a href="../index.html" class="input-group-text goHome"><i class="bi bi-house me-1"></i> Beranda</a>
+                <a href="UMKM.html" class="input-group-text bg-warning bg-opacity-10" style="color: #F39C12 !important;"><i class="bi bi-basket"></i></a>
+                <a href="Galeri Warung.html" class="input-group-text bg-primary bg-opacity-10" style="color: #3382E2 !important;"><i class="bi bi-shop"></i></a>
+                <a href="Komputer Laptop.html" class="input-group-text bg-success bg-opacity-10 aktif" style="color: #16A085 !important;"><i class="bi bi-pc-display"></i></a>
+                <a href="Material Bangunan.html" class="input-group-text bg-danger bg-opacity-10" style="color: #AD1457 !important;">
+                    <i class="bi bi-hammer"></i></a>
+                <a href="Travel Wisata.html" class="input-group-text bg-info bg-opacity-10"style="color: #2761D0 !important;"><i class="bi bi-image-alt"></i></a>
+                <a href="Layanan Picksend.html" class="input-group-text bg-secondary bg-opacity-10" style="color: #6A1B9A !important;"><i class="bi bi-mailbox2"></i></a>
+            </div>
+            <div id="body3Content" class="kategori region"></div>
+        </div>
+    </section>
+
+    <button type="button" id="theme" class="btn btn-primary switch d-none">
+        <span onclick="setDarkMode(true)" id="darkBtn" class="">Mode: <strong> <i class="bi bi-moon"></i></strong></span>
+        <span onclick="setDarkMode(false)" id="lightBtn" class="lightbtn">Mode: <strong> <i class="bi bi-lightbulb"></i></strong></span>
+    </button>
+
+    <!-- bootstrap JS -->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <!-- searchbar -->
+    <script>
+		$(".searchfilter").on("keyup", function() {
+			$(".card").filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf($(".searchfilter").val().toLowerCase()) > -1);
+			});
+		});
+        $(".searchbar").on("keyup", function() {
+			$(".kategori .card").filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf($(".searchbar").val().toLowerCase()) > -1);
+			});
+		});
+
+        $(".searchregion").on("keyup", function() {
+			$(".region .card").filter(function() {
+				$(this).toggle($(this).text().toLowerCase().indexOf($(".searchregion").val().toLowerCase()) > -1);
+			});
+		});
+
+        $(".btn-reset").hide();
+        function resetShow() {
+            $(".searchIcon").hide(300);
+           $(".btn-reset").show(300);
+        }
+
+        function reset() {
+           $(".col-md-3 .card").show(500);
+           form.reset();
+        }
+	</script>
+
+    <!-- Sheet Display -->
+    <script>
+        const URL = "https://docs.google.com/spreadsheets/d/1_mxmysozTj7pvNJvKJzJSxrG3P1x6oRGJL80byUdBSE/export?format=csv"
+        const main = document.querySelector("main");
+        const body3Content = document.querySelector("#body3Content");
+
+        // lakukan fetch terhadap url
+        fetch(URL).then(result=>result.text()).then(function(csvtext) {
+            return csv().fromString(csvtext);
+        }).then(function(csv) {
+            csv.forEach(function(row) {
+
+                // membuat row
+                body3Content.classList.add("row");
+
+                // membuat kolom
+                var div = document.createElement("div");
+                div.classList.add("col-md-3");
+
+                // membuat kartu
+                var span = document.createElement("span");
+                span.classList.add("card");
+
+                // membuat kartu
+                var main = document.createElement("main");
+                main.classList.add("card-body");
+
+                main.innerHTML += "<img src='"+ row.link +"' alt='Error! Gambar gagal dimuat'></img>";
+                main.innerHTML += "<h5>" + row.nama + "</h5>";
+                main.innerHTML += "<p>" + row.keterangan + "</p>";
+                main.innerHTML += "<div>" + row.kategori + "</div>";
+                main.innerHTML += "<div>" + row.lokasi + row.Timestamp + "</div>";
+                main.innerHTML += "<a class='btn btn-success' href='"+ row.notelp +"'>Hubungi</a>";
+                main.innerHTML += "<a class='btn btn-primary' href='"+ row.link +"'>Lihat gambar</a>";
+
+                body3Content.appendChild(div);
+                div.appendChild(span);
+                span.appendChild(main);
+            });
+        });
+
+    </script>
+    <!-- Akhir sheet display -->
+
+    <!-- darkmode -->
+	<script>
+        function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none"
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
+    </script>
+    <!-- akhir darkmode -->
+   
+    <!-- local storage -->
+    <script>
+           if(localStorage.getItem('preferredTheme') == 'dark') {
+               setDarkMode(true)
+           }
+   
+           function setDarkMode(isDark) {
+               var darkBtn = document.getElementById('darkBtn')
+               var lightBtn = document.getElementById('lightBtn')
+   
+               if(isDark) {
+                   lightBtn.style.display = "block"
+                   darkBtn.style.display = "none" 
+               //tambahan localstorage
+                   localStorage.setItem('preferredTheme', 'dark');
+               } else {
+                   lightBtn.style.display = "none"
+                   darkBtn.style.display = "block"
+                //tambahan localstorage
+                   localStorage.removeItem('preferredTheme');
+               }
+   
+               document.body.classList.toggle("darkmode");
+           }
+    </script>
+    <script>
+        const namaJudul = document.querySelector(".namaJudul");
+        let nama = localStorage.getItem('nama');
+        if(!nama){
+            let nama = prompt("Masukkan nama anda:");
+            localStorage.setItem('nama', nama);
+        }
+        namaJudul.innerHTML = ` ${nama}`;
+        
+        const gantiNama  = (e) => {
+            nama = prompt("Masukkan nama baru anda:");
+            localStorage.setItem('nama', nama);
+            e.preventdefault();
+        }
+    </script>
+    <!-- akhir local storage -->
+    
+    <!-- animasi -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
+	<script>
+		gsap.from('.input-group-text', {duration:1, x:'100%', opacity:0, delay:1, ease:'elastic'})
+		gsap.from('.col-md-3', {duration:1, y:-50, opacity:0, delay:1.25, ease:'back'})
+	</script>
+	<!-- akhir animasi -->
+
+    <!-- loader -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".bg-loader").hide();
+		})
+	</script>
+	<!-- akhir loader -->
+
+</body>
+</html>

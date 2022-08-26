@@ -5,13 +5,17 @@
   .interact {
     margin: auto;
   }
-  #header{
-    top: 0;
+  #header,
+  #header2 {
+    top: -5px;
   }
 }
 
-#panel .container, #quickSale .container{
-  background-color: #EFF6F6;
+/* all */
+#panel .container,
+#feed .container,
+.goHome {
+  background-color: #eff6f6;
   border-radius: 20px;
 }
 a {
@@ -26,7 +30,8 @@ body.darkmode {
   background: #131313;
   color: rgb(227, 227, 227) !important;
 }
-body.darkmode .navbar, body.darkmode #header {
+body.darkmode .navbar,
+body.darkmode #header {
   background-color: rgba(0, 0, 0, 0.7);
   color: rgb(227, 227, 227) !important;
 }
@@ -36,8 +41,9 @@ body.darkmode small {
   color: rgb(227, 227, 227) !important;
 }
 body.darkmode #panel .container,
-body.darkmode #quickSale .container,
-body.darkmode .nav-icon, body.darkmode .offcanvas,
+body.darkmode #feed .container,
+body.darkmode .nav-icon,
+body.darkmode .offcanvas,
 body.darkmode ul li {
   background: #1b1b1b;
   color: rgb(227, 227, 227) !important;
@@ -45,17 +51,18 @@ body.darkmode ul li {
 body.darkmode .btn {
   color: rgb(227, 227, 227) !important;
 }
-body.darkmode .card, 
+body.darkmode .card,
 body.darkmode .form-control,
-body.darkmode .search-triger{
-  background-color: #2C2C2C;
+body.darkmode .search-triger,
+body.darkmode .input-group-text {
+  background-color: #2c2c2c;
   color: rgb(227, 227, 227) !important;
 }
-body.darkmode .lightbtn{
-	display: block;
+body.darkmode .lightbtn {
+  display: block;
 }
-.lightbtn{
-	display: none;
+.lightbtn {
+  display: none;
 }
 
 /* navigation */
@@ -65,7 +72,6 @@ body.darkmode .lightbtn{
 }
 .search-triger {
   border: none;
-  background-color: rgba(255, 255, 255, 0.75);
   width: 100%;
   box-shadow: none !important;
 }
@@ -114,22 +120,26 @@ body.darkmode .lightbtn{
   background-color: #3382e2;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
-.btn-reset{
+.btn-reset {
   font-size: 14px;
-}
-.carousel-item img {
-  border-radius: 20px;
 }
 .alert {
   border-radius: 15px;
 }
+.input-group-text {
+  border: none;
+  border-radius: 15px !important;
+  margin: 0 5px 5px 0 !important;
+  cursor: pointer;
+}
+.aktif {
+  border: 2px solid #3382e2;
+}
 .modal-content {
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px);
 }
 .offcanvas {
-  height: 95vh !important;
+  height: 60vh !important;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
@@ -140,7 +150,9 @@ body.darkmode .lightbtn{
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-.slides::-webkit-scrollbar { display: none; }
+.slides::-webkit-scrollbar {
+  display: none;
+}
 .slides > div {
   scroll-snap-align: start;
   flex-shrink: 0;
@@ -153,16 +165,20 @@ body.darkmode .lightbtn{
   align-items: center;
   overflow: hidden;
 }
-.slides span{
+.slides span {
   margin: 0 10px 10px 0;
 }
-.slides span img{
+.slides span img {
   border-radius: 15px;
 }
-.slides span p{
+.slides span p {
   text-align: center;
   color: white;
   margin-top: -50px;
+  line-height: 1;
+  text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 8px 0 2px 0;
 }
 
 /* loader */
@@ -241,22 +257,26 @@ h2 span {
 }
 
 /* header */
-#header {
+#header,
+#header2 {
   position: sticky;
   z-index: 20;
   background-color: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px);
   padding: 10px 0 10px 0;
 }
+.namaJudul {
+  cursor: pointer;
+}
 
-form .searchregion, .searchbar, .todoForm {
-  background-color: #EFF6F6;
+form .searchregion,
+.searchbar,
+.todoForm,
+.searchbar,
+.filter {
+  background-color: #eff6f6;
   border-radius: 20px !important;
   border: none;
-}
-.deteksi {
-  border: none;
-  text-align: left;
 }
 
 /*menu panel*/
@@ -264,28 +284,30 @@ form .searchregion, .searchbar, .todoForm {
   width: 90px;
   height: 75px;
   border-radius: 15px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   transition: 0.25s;
-  font-size: 25px;
+  font-size: 30px;
+  box-shadow: none !important;
+  border: none !important;
+  font-weight: 900;
 }
 .tmenu:hover {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   transform: translateY(-5px);
   transition: 0.25s;
+  border: none !important;
 }
 .icon p {
   font-size: 15px;
   line-height: 1;
   margin-top: 5px;
 }
-.icon{
+.icon {
   text-align: center;
 }
 
-
-/* quickSale */
-#quickSale .container{
+/* feed */
+#feed .container {
   margin-bottom: 75px;
 }
 .card {
@@ -302,6 +324,20 @@ form .searchregion, .searchbar, .todoForm {
 .card a {
   margin: 10px 10px 20px 0;
 }
+.card-body h5 {
+  font-size: 16px;
+}
+.card-body p,
+.card-body a {
+  display: none;
+  transition: 0.5s;
+}
+.col-md-3:hover .card-body p,
+.col-md-3:hover .card-body a {
+  display: inline-block;
+  transition: 0.5s;
+  cursor: pointer;
+}
 
 /* promo */
 .searchfilter {
@@ -316,18 +352,12 @@ form .searchregion, .searchbar, .todoForm {
 }
 
 /* profile */
-.profile-icon .bi {
-  font-size: 75px;
-  color: #3382e2;
-  text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-
 .todo ul {
   list-style-type: none;
   display: flex;
   padding: 0;
   flex-direction: column;
+  margin-bottom: 75px;
 }
 
 .todo ul li {
@@ -339,7 +369,7 @@ form .searchregion, .searchbar, .todoForm {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #EFF6F6;
+  background-color: #eff6f6;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -356,7 +386,7 @@ form .searchregion, .searchbar, .todoForm {
 }
 
 .produkLokalPost,
-.quickSalePost {
+.feedPost {
   border: 2px solid #3382e2;
   border-radius: 20px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
@@ -371,24 +401,19 @@ form .searchregion, .searchbar, .todoForm {
   .geoLocationDisplay {
     margin: 10px 0 0 0;
   }
-  #header{
+  #header {
     top: -115px;
   }
-  #header .switch{
+  #header .switch {
     margin: 10px 0 10px 0;
+  }
+  #header2 {
+    top: -65px;
+  }
+  #header2 form {
+    margin-top: 10px;
   }
   .i-mobile {
     margin-top: 20px;
-  }
-  .card-body h5{
-    font-size: 16px;
-  }
-  .card-body p, .card-body a{
-    display: none;
-    transition: 0.5s;
-  }
-  .col-md-4:hover .card-body p, .col-md-4:hover .card-body a{
-    display: inline-block;
-    transition: 0.5s;
   }
 }

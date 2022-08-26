@@ -33,7 +33,10 @@
     <!-- navbar -->
     <nav class="navbar fixed-top shadow-sm">
         <div class="container">
-            <a href="index.html" class="btn me-2"><i class="bi bi-arrow-left-circle"></i> Home / Post</a>
+            <a href="index.html" class="me-2"><i class="bi bi-arrow-left-circle"></i> Beranda / Post</a>
+            <div class="col-auto">
+                <a href="dev.html"><img src="aset/i2.png" class="rounded-circle" width="35px" height="35px" alt=""></a>
+            </div>
         </div>
     </nav>
     
@@ -46,7 +49,7 @@
                         <button class="btn btn-light nav-icon my-auto">
                             <i class="bi bi-house "></i>
                         </button>
-                        <small class="nav-label">Home</small>
+                        <small class="nav-label">Beranda</small>
                     </a>
                     <a href="promo.html" class="col-3 col-md text-center nav-menu">
                         <button class="btn btn-light nav-icon my-auto">
@@ -64,7 +67,7 @@
                         <button class="btn btn-light nav-icon my-auto">
                             <i class="bi bi-person"></i>
                         </button>
-                        <small class="nav-label">Dashboard</small>
+                        <small class="nav-label">Profile</small>
                     </a>
                 </div>
             </div>
@@ -72,45 +75,47 @@
     </nav>
 
     <!-- menu panel -->
-    <section id="panel" style="margin-top: 70px;">
+    <div class="container" style="margin-top: 70px;"><small class="lh-1">Daftarkan produk atau usaha anda disini!</small></div>
+    <section id="panel">
         <div class="container my-3">
             <!-- menubar -->
-            <div class="row menubar text-center pt-3">
+            <div class="slides menubar text-center pt-3">
                 <div class="col-md-2 col-4 pumkml">
-                    <a href="post/pumkml.html" class="icon">
-                        <button class="btn tmenu" style="border-color: #28B463;"><i class="bi bi-send-plus"></i></button>
-                        <p>Produk UMKM</p>
-                    </a>
+                    <div class="icon">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn tmenu bg-warning bg-opacity-10" style="color: #F39C12 !important;"><i class="bi bi-basket"></i></button>
+                        <p>Produk UMKM lokal</p>
+                    </div>
                 </div>
                 <div class="col-md-2 col-4 tl">
-                    <a href="post/tl.html" class="icon">
-                        <button class="btn tmenu"style="border-color: #3382E2;"><i class="bi bi-send-plus"></i></button>
+                    <div class="icon">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn tmenu bg-primary bg-opacity-10" style="color: #3382E2 !important;"><i class="bi bi-shop"></i></button>
                         <p>Galeri Warung</p>
-                    </a>
+                    </div>
                 </div>
                 <div class="col-md-2 col-4 kl">
-                    <a href="post/kl.html" class="icon">
-                        <button class="btn tmenu" style="border-color: #2761D0"><i class="bi bi-send-plus"></i></button>
+                    <div class="icon">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal3" class="btn tmenu bg-success bg-opacity-10" style="color: #16A085 !important;"><i class="bi bi-pc-display"></i></button>
                         <p>Komputer & Laptop</p>
-                    </a>
+                    </div>
                 </div>
                 <div class="col-md-2 col-4 mb">
-                    <a href="post/mb.html" class="icon">
-                        <button class="btn tmenu" style="border-color: #16A085;"><i class="bi bi-send-plus"></i></button>
+                    <div class="icon">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal4" class="btn tmenu bg-danger bg-opacity-10" style="color: #AD1457 !important;">
+                            <i class="bi bi-hammer"></i></button>
                         <p>Material & Bangunan</p>
-                    </a>
+                    </div>
                 </div>
                 <div class="col-md-2 col-4 tw">
-                    <a href="post/tw.html" class="icon">
-                        <button class="btn tmenu" style="border-color: #AD1457;"><i class="bi bi-send-plus"></i></button>
+                    <div class="icon">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal5" class="btn tmenu bg-info bg-opacity-10"style="color: #2761D0 !important;"><i class="bi bi-image-alt"></i></button>
                         <p>Travel & Wisata</p>
-                    </a>
+                    </div>
                 </div>
                 <div class="col-md-2 col-4 kp">
-                    <a class="icon">
-                        <button class="btn tmenu" style="border-color: #6A1B9A;"><i class="bi bi-send-plus"></i></button>
-                        <p>Kirim PickSend</p>
-                    </a>
+                    <div class="icon">
+                        <button data-bs-toggle="modal" data-bs-target="#exampleModal6" class="btn tmenu bg-secondary bg-opacity-10" style="color: #6A1B9A !important;"><i class="bi bi-mailbox2"></i></button>
+                        <p>Layanan & PickSend</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -120,19 +125,22 @@
     <section id="post">
         <div class="container">
             <div class="row justify-content-center post">
-                <form name="QuickSaleData" class="produkLokalPost py-3 col-md-6">
-                    <h4><i class="bi bi-plus-square"></i> Quick Sale</h4>
+                <form name="feedData" class="produkLokalPost py-3 col-md-6">
+                    <h4><i class="bi bi-plus-square"></i> Posting Feed</h4>
                     <div class="alert alert-primary alert-dismissible fade show" role="alert">Selalu patuhi standar komunitas dan perhatikan etika
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     <div class="d-none alert alert-success alert-dismissible fade show my-alert" role="alert">
                         <p>Kartu formulir berhasil diposting!</p>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <label for="uploadGambar" class="form-label ">Upload Gambar Ke GDrive & Paste link</label>
+                    </div>  
+                    <label for="uploadGambar" class="form-label ">Upload Gambar {Error!}</label>
                     <div class="input-group mb-3">
+                        <input disabled name="img" type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    </div>
+                    <div class="mb-3">
+                        <label for="uploadGambar" class="form-label ">Upload Gambar Ke GDrive & Paste link</label>
                         <input name="link" type="text" class="form-control" id="inputLinkGambar" placeholder="Paste link URL gambar disini">
-                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-clipboard-plus"></i></span>
                     </div>
                     <div class="mb-3">
                         <label for="kategori" class="form-label">Kategori</label>
@@ -145,20 +153,39 @@
                             <option value="Otomotif">Otomotif</option>
                             <option value="Kesehatan">Kesehatan</option>
                             <option value="Alat">Alat</option>
+                            <option value="Kuliner">Kuliner</option>
                         </select>
                     </div>
+                    <label for="namaLengkap" class="form-label">Nama Barang/Jasa & Nomor Whatsapp</label>
+                    <div class="mb-3 input-group">
+                        <input name="nama" type="text" class="form-control" id="namaLengkap" placeholder="Contoh: Batik Purworejo">
+                        <input name="notelp" type="number" class="form-control" id="nomorWhatsApp" placeholder="Contoh: 08123456789">
+                    </div>
                     <div class="mb-3">
-                        <label for="ket" class="form-label">Judul & Keterangan / Deskripsi</label>
+                        <label for="ket" class="form-label">Keterangan / Deskripsi</label>
                         <textarea name="keterangan" class="form-control" id="ket" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="lokasi" class="form-label">Lokasi</label>
-                        <input name="lokasi" type="text" class="form-control" id="lokasi" placeholder="Contoh: Kutoarjo, Purworejo">
-                    </div>
-                    <label for="namaLengkap" class="form-label">Nama Lengkap & Nomor Whatsapp</label>
-                    <div class="mb-3 input-group">
-                        <input name="nama" type="text" class="form-control" id="namaLengkap" placeholder="Contoh: Faris M">
-                        <input name="notelp" type="number" class="form-control" id="nomorWhatsApp" placeholder="Contoh: 08123456789">
+                        <input name="lokasi" type="text" class="form-control" id="lokasi" placeholder="Pilih lokasi" list="datalistOptions1">
+                        <datalist id="datalistOptions1">
+                            <option value="Bener, Purworejo">
+                            <option value="Loano, Purworejo">
+                            <option value="Gebang, Purworejo">
+                            <option value="Bruno, Purworejo">
+                            <option value="Kemiri, Purworejo">
+                            <option value="Pituruh, Purworejo">
+                            <option value="Butuh, Purworejo">
+                            <option value="Kutoarjo, Purworejo">
+                            <option value="Bayan, Purworejo">
+                            <option value="Banyuurip, Purworejo">
+                            <option value="Purworejo, Purworejo">
+                            <option value="Kaligesing, Purworejo">
+                            <option value="Bagelen, Purworejo">
+                            <option value="Purwodadi, Purworejo">
+                            <option value="Ngombol, Purworejo">
+                            <option value="Grabag, Purworejo">
+                        </datalist>
                     </div>
                     <button type="submit" class="btn btn-primary btn-kirim"><i class="bi bi-send-plus"></i> Kirim</button>
                     <button class="btn btn-primary btn-loading d-none" type="button" disabled>
@@ -169,53 +196,112 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Seting preferesnsi kamu!</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Produk UMKM lokal</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <table class="table">
-                    <tbody>
-                      <tr id="pumkm">
-                        <td>UMKM Lokal</td>
-                        <td id="pumkmli">✔</td>
-                        <td>Tidak dapat diubah</td>
-                      </tr>
-                      <tr id="tl">
-                        <td>Galeri Warung</td>
-                        <td id="tli">✔</td>
-                        <td>Tidak dapat diubah</td>
-                      </tr>
-                      <tr id="kl">
-                        <td>Komputer & Laptop</td>
-                        <td id="kli">✔</td>
-                        <td><button class="btn btn-primary">Ubah</button></td>
-                      </tr>
-                      <tr id="mb">
-                        <td>Material & Bangunan</td>
-                        <td id="mbi">✔</td>
-                        <td><button class="btn btn-primary">Ubah</button></td>
-                      </tr>
-                      <tr id="tw">
-                        <td>Travel & Wisata</td>
-                        <td id="twi">✔</td>
-                        <td><button class="btn btn-primary">Ubah</button></td>
-                      </tr>
-                      <tr id="kp">
-                        <td>Kirim PickSend</td>
-                        <td id="kpi">✔</td>
-                        <td><button class="btn btn-primary">Ubah</button></td>
-                      </tr>
-                    </tbody>
-                  </table>
+            <div class="modal-body text-center">
+                <button class="btn tmenu bg-warning bg-opacity-10 mb-2" style="color: #F39C12 !important;"><i class="bi bi-basket"></i></button>
+                <p>Daftarkan produk anda disini dan pastikan isi data dengan benar.</p>
             </div>
             <div class="modal-footer">
-                <button id="simpan" type="button" class="btn btn-success" data-bs-dismiss="modal">Simpan dan tutup</button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfMlQn1OXQ_huaKkJMXrF_uOOFDryvQTXkg8rFuKwO82FcVpg/viewform?usp=sf_link" class="btn btn-primary">Isi Formulir</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Galeri Warung</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <button class="btn tmenu bg-primary bg-opacity-10 mb-2" style="color: #3382E2 !important;"><i class="bi bi-shop"></i></button>
+                <p>Daftarkan tempat anda disini dan pastikan isi data dengan benar.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSexBDKZ-1pJT6tParkbXbVwKIsZeK4_q0rE3kJCXCRUEEurBw/viewform?usp=sf_link" class="btn btn-primary">Isi Formulir</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Komputer & Laptop</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <button class="btn tmenu bg-success bg-opacity-10 mb-2" style="color: #16A085 !important;"><i class="bi bi-pc-display"></i></button>
+                <p>Daftarkan barang anda disini dan pastikan isi data dengan benar.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf639_W5_lNz5me9w25NW_F5pDnlQc5XnLcAOHbnCR3ogoWwA/viewform?usp=sf_link" class="btn btn-primary">Isi Formulir</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Material & Bangunan</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <button class="btn tmenu bg-danger bg-opacity-10 mb-2" style="color: #AD1457 !important;">
+                    <i class="bi bi-hammer"></i></button>
+                <p>Daftarkan produk anda disini dan pastikan isi data dengan benar.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfe7Kh6jgjEHHczroSn9YYuVEVySrZypHZBatjG6JnhY7mTaQ/viewform?usp=sf_link" class="btn btn-primary">Isi Formulir</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Travel & Wisata</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <button class="btn tmenu bg-info bg-opacity-10  mb-2"style="color: #2761D0 !important;"><i class="bi bi-image-alt"></i></button>
+                <p>Daftarkan layanan anda disini dan pastikan isi data dengan benar.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-cJadeoaA4BgITwN0mp9h5NSYoZ24ra5j6XB0dnF49AHzaA/viewform?usp=sf_link" class="btn btn-primary">Isi Formulir</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Layanan & PickSend</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <button class="btn tmenu bg-secondary bg-opacity-10 mb-2" style="color: #6A1B9A !important;"><i class="bi bi-mailbox2"></i></button>
+                <p>Daftarkan layanan anda disini dan pastikan isi data dengan benar.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9IjpVGyT49RzEjYs3hgBegc8VpE50nv9dEDLKhYXtEeUs0w/viewform?usp=sf_link" type="button" class="btn btn-primary">Isi Formulir</a>
             </div>
         </div>
         </div>
@@ -229,7 +315,7 @@
     <!-- save google sheet -->
 	<script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwZ3RtYTnj1oBG_J7mINMlscVDghhLqkZRvRGKXNhaig3QxoM9uRzZisMUuY8POo69qig/exec'
-        const form = document.forms['QuickSaleData']
+        const form = document.forms['feedData']
         const btnKirim = document.querySelector('.btn-kirim');
 	    const btnLoading = document.querySelector('.btn-loading');
 	    const myAlert = document.querySelector('.my-alert')
@@ -248,149 +334,7 @@
 	    	.catch(error => console.error('Error!', error.message))
 	    })
       </script>
-      <!-- akhir save to google sheet -->
-
-    <script>
-        // JS kl
-        const simpan = document.querySelector('#kl');
-        let kl = localStorage.getItem('kl');
-
-        if(!kl){
-            localStorage.setItem('kl', 'unSelected');
-        }
-
-        const unSelectedMode = () => {
-            $(".kl").hide();
-            localStorage.setItem('kl', 'unSelected');
-            document.getElementById("kli").innerHTML = "❌";
-            
-        }
-        const selectedMode = () => {
-            $(".kl").show();
-            localStorage.setItem('kl', 'selected');
-            document.getElementById("kli").innerHTML = "✔";
-        }
-
-        if(kl === 'unSelected'){
-            unSelectedMode();
-        }
-
-        simpan.addEventListener('click', function() {
-            kl = localStorage.getItem('kl');
-            if(kl === 'selected') {
-                unSelectedMode();
-            } else {
-                selectedMode();
-            }
-
-            event.preventDefault();
-        });
-
-        // Material & bangunan
-        const simpan1= document.querySelector('#mb');
-        let mb = localStorage.getItem('mb');
-
-        if(!mb){
-            localStorage.setItem('mb', 'unSelected');
-        }
-
-        const unSelectedMode1 = () => {
-            $(".mb").hide();
-            localStorage.setItem('mb', 'unSelected');
-            document.getElementById("mbi").innerHTML = "❌";
-            
-        }
-        const selectedMode1 = () => {
-            $(".mb").show();
-            localStorage.setItem('mb', 'selected');
-            document.getElementById("mbi").innerHTML = "✔";
-        }
-
-        if(mb === 'unSelected'){
-            unSelectedMode1();
-        }
-
-        simpan1.addEventListener('click', function() {
-            mb = localStorage.getItem('mb');
-            if(mb === 'selected') {
-                unSelectedMode1();
-            } else {
-                selectedMode1();
-            }
-
-            event.preventDefault();
-        });
-        
-        // Travel & wisata
-        const simpan2= document.querySelector('#tw');
-        let tw = localStorage.getItem('tw');
-
-        if(!tw){
-            localStorage.setItem('tw', 'unSelected');
-        }
-
-        const unSelectedMode2 = () => {
-            $(".tw").hide();
-            localStorage.setItem('tw', 'unSelected');
-            document.getElementById("twi").innerHTML = "❌";
-            
-        }
-        const selectedMode2 = () => {
-            $(".tw").show();
-            localStorage.setItem('tw', 'selected');
-            document.getElementById("twi").innerHTML = "✔";
-        }
-
-        if(tw === 'unSelected'){
-            unSelectedMode2();
-        }
-
-        simpan2.addEventListener('click', function() {
-            tw = localStorage.getItem('tw');
-            if(tw === 'selected') {
-                unSelectedMode2();
-            } else {
-                selectedMode2();
-            }
-
-            event.preventDefault();
-        });
-
-        // Kirim Picksend
-        const simpan3= document.querySelector('#kp');
-        let kp = localStorage.getItem('kp');
-
-        if(!kp){
-            localStorage.setItem('kp', 'unSelected');
-        }
-
-        const unSelectedMode3 = () => {
-            $(".kp").hide();
-            localStorage.setItem('kp', 'unSelected');
-            document.getElementById("kpi").innerHTML = "❌";
-            
-        }
-        const selectedMode3 = () => {
-            $(".kp").show();
-            localStorage.setItem('kp', 'selected');
-            document.getElementById("kpi").innerHTML = "✔";
-        }
-
-        if(kp === 'unSelected'){
-            unSelectedMode3();
-        }
-
-        simpan3.addEventListener('click', function() {
-            kp = localStorage.getItem('kp');
-            if(kp === 'selected') {
-                unSelectedMode3();
-            } else {
-                selectedMode3();
-            }
-
-            event.preventDefault();
-        });
-    </script>
+    <!-- akhir save to google sheet -->
 
     <!-- darkmode -->
 	<script>
@@ -436,7 +380,7 @@
                document.body.classList.toggle("darkmode");
            }
     </script>
-    <!-- akhir local storage -->s
+    <!-- akhir local storage -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.0/gsap.min.js"></script>
     <script>
@@ -447,13 +391,6 @@
     <!-- bootstrap JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-
-    <!-- Javascript -->
-    <script type = "text/javascript" language = "javascript">
-        $('#simpan').click(function() {
-            location.reload();
-        });
-    </script>
 
     <!-- loader -->
 	<script type="text/javascript">
