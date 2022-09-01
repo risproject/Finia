@@ -31,7 +31,7 @@ body.darkmode {
   color: rgb(227, 227, 227) !important;
 }
 body.darkmode .navbar,
-body.darkmode #header {
+body.darkmode #header, body.darkmode #header2 {
   background-color: rgba(0, 0, 0, 0.7);
   color: rgb(227, 227, 227) !important;
 }
@@ -54,7 +54,8 @@ body.darkmode .btn {
 body.darkmode .card,
 body.darkmode .form-control,
 body.darkmode .search-triger,
-body.darkmode .input-group-text {
+body.darkmode .input-group-text,
+body.darkmode .modal-content {
   background-color: #2c2c2c;
   color: rgb(227, 227, 227) !important;
 }
@@ -123,6 +124,10 @@ body.darkmode .lightbtn {
 .btn-reset {
   font-size: 14px;
 }
+.modal .btn-close{
+  border-radius: 15px;
+  background-color: #dc3545;
+}
 .alert {
   border-radius: 15px;
 }
@@ -176,7 +181,7 @@ body.darkmode .lightbtn {
   color: white;
   margin-top: -50px;
   line-height: 1;
-  text-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+  text-shadow: rgba(50, 50, 93, 0.5) 0px 6px 12px -2px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   padding: 8px 0 2px 0;
 }
