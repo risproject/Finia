@@ -1,5 +1,0 @@
-git add *
-git commit -m "nomor update"
-git push origin master
-
-Finia Innovation For Indonesia
